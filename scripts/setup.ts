@@ -123,7 +123,8 @@ async function createEnv() {
     ["firebase_project_id", "Firebase Project ID"],
     ["firebase_storage_bucket", "Firebase Storage Bucket"],
     ["firebase_messaging_sender_id", "Firebase Messaging Sender ID"],
-    ["firebase_app_id", "Firebase App ID"]
+    ["firebase_app_id", "Firebase App ID"],
+    ["firebase_measurementId", "Firebase Measurement ID"]
   ] as const
 
   // Get info
@@ -147,11 +148,12 @@ async function createEnv() {
     firebase_project_id,
     firebase_storage_bucket,
     firebase_messaging_sender_id,
-    firebase_app_id
+    firebase_app_id,
+    firebase_measurementId
   } = answers as Record<string, string>
   
   // Create env
-  const envContents = `VITE_TITLE=${title}\nVITE_FIREBASE_API_KEY=${firebase_api_key}\nVITE_FIREBASE_AUTH_DOMAIN=${firebase_auth_domain}\nVITE_FIREBASE_PROJECT_ID=${firebase_project_id}\nVITE_FIREBASE_STORAGE_BUCKET=${firebase_storage_bucket}\nVITE_FIREBASE_MESSAGING_SENDER_ID=${firebase_messaging_sender_id}\nVITE_FIREBASE_APP_ID=${firebase_app_id}`
+  const envContents = `VITE_TITLE=${title}\nVITE_FIREBASE_API_KEY=${firebase_api_key}\nVITE_FIREBASE_AUTH_DOMAIN=${firebase_auth_domain}\nVITE_FIREBASE_PROJECT_ID=${firebase_project_id}\nVITE_FIREBASE_STORAGE_BUCKET=${firebase_storage_bucket}\nVITE_FIREBASE_MESSAGING_SENDER_ID=${firebase_messaging_sender_id}\nVITE_FIREBASE_APP_ID=${firebase_app_id},VITE_FIREBASE_MEASUREMENTID=${firebase_measurementId}`
   fs.writeFileSync(".env", envContents)
 
   // Update translate file
