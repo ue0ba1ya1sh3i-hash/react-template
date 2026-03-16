@@ -1,4 +1,4 @@
-// This file is the initialization file for i18n, so feel free to change any settings you like here.
+// This file is the i18n initialization file.
 
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"

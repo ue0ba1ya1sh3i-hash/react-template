@@ -1,7 +1,6 @@
 {
   "firestore": {
     "database": "(default)",
-    "location": "asia-northeast2",
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
@@ -43,13 +42,5 @@
     },
 
     "singleProjectMode": true
-  },
-  
-  "auth": {
-    "providers": {
-      "anonymous": true,
-      "emailPassword": true,
-      "googleSignIn": {}
-    }
   }
 }

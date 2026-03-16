@@ -10,10 +10,9 @@
     "preview": "vite preview",
     "emulator": "firebase emulators:start",
     "deploy": "firebase deploy",
-    "setup": "tsx scripts/setup.js"
+    "setup": "tsx settings/scripts/setup.js"
   },
   "dependencies": {
-    "@clack/prompts": "^1.1.0",
     "@fontsource-variable/geist": "^5.2.8",
     "@generouted/react-router": "^1.20.0",
     "@tailwindcss/vite": "^4.2.1",
@@ -46,6 +45,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
+    "@types/prompts": "^2.4.9",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
@@ -53,6 +53,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "prompts": "^2.4.2",
     "tsx": "^4.21.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",

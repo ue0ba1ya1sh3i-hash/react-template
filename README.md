@@ -6,11 +6,10 @@
 - [セットアップ方法](#セットアップ方法)
 - [ファイル構成](#ファイル構成)
 - [ライセンス](#ライセンス)
-- [ルール](#ルール)
 
 ## 概要
 <p align="center">
-  <img src="./description/screenshots/ja/1.png" width="70%">
+  <img src="./settings/screenshots/ja/1.png" width="70%">
 </p>
 
 <p align="center">
@@ -22,7 +21,39 @@
 - 他にもFirebaseでバックエンド(Functions)やデータ(Firestore)を管理させてセキュアで開発体験がよくなるようになっています。
 
 ## 使用技術
-- 以下は使用する技術を書いています。どれもシンプルでモダンな技術となっています。
+- 以下は使用するおおまかな技術を書いています。
+- メインシステム
+  - React
+  - TypeScript
+  - Vite
+- ユーティリティ
+  - i18next
+  - Zustand
+- デザイン
+  - Shadcn UI
+    - Radix UIを使用してます。
+  - Motion
+  - Tailwind CSS
+- アイコン
+  - Lucide react
+  - React icons
+- クラウド
+  - GitHub
+  - Firebase
+    - Auth
+    - Firestore
+    - Functions
+  - Cloudflare
+    - Pages
+    - Domain
+      - Cloudflareのドメインは安くて接続しやすいのでおすすめです。
+- その他
+  - react-firebase-hooks
+    - Firebaseの管理はこれが一番楽です。
+  - react-type-animation
+    - 最初の紹介ページの文字をタイピングする演出を賄っています。
+  - @generouted/react-router
+    - `/src/pages`ディレクトリから自動でパスを設定し`react-router-dom`のTypeScript用を使用することができます。
 
 ## セットアップ方法
 - Node.jsとJavaのインストールとプロジェクトの依存関係のインストール
@@ -31,7 +62,7 @@
 
 - Firebaseプロジェクトの作成
   - Firebase Consoleにアクセスしてプロジェクトを作成してください。
-  - Functionsを使うのでBlazeプランにしてください。
+  - Functionsの第二世代を使うのでBlazeプランにしてください。
   - AuthでEmail・Google・匿名のログイン方法を有効にしてください。
 
 - Firebase CLIにログイン
@@ -47,15 +78,11 @@
   - `npm run emulator`でエミュレーターを起動しておいてください。
 
 - セットアップコマンドの実行
-  - `npm run setup`で`Normal setup`を選んで画面の通りにいろいろ入力してください。
+  - `npm run setup`で`Normal setup`を選んで画面の通りに必要事項を入力してください。
 
 - テーマカラー・アイコンの設定
   - `public/files/icons/icon.svg`と`src/component/mine/parts/mine.tsx`の両方を更新してアイコンを設定してください。
   - 現在のテーマカラーは紫色(白・黒両対応)になっています。変えたい人は`src/index.css`で編集してください。
-
-- ルートページの編集
-  - `src/pages/index.tsx`にあるお知らせ文は削除してどんどん編集してください。
-    - `src/translate/ja.json`と`en.json`にあるお知らせ文も削除しておいてください。
 
 - GitHubに公開&Cloudflare Pagesの接続
   - GitHubにプロジェクトを公開してください。
@@ -82,7 +109,3 @@
 ## ライセンス
   - このプロジェクトはMIT Licenseのもとで公開されています。
 
-## ルール
-- 以下は守るとコードとデザインに一貫性が出ます。
-- [コードに関するルール](./rules/code.md)
-- [デザインに関するルール](./rules/design.md)

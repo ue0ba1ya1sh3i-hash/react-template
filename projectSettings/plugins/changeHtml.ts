@@ -1,5 +1,7 @@
+// This file is vite plugin for changing html by env.
+
 import { type Plugin, loadEnv } from "vite"
-import translateFile from "../src/translate/en.json"
+import translateFile from "../../src/translate/en.json"
 
 export function changeHtml(): Plugin {
   return {
