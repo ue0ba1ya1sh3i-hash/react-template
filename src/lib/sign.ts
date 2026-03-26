@@ -1,5 +1,8 @@
+// This file contains functions related to login.
+
 import { GoogleAuthProvider, linkWithPopup, signInAnonymously, signInWithPopup, deleteUser, getAuth } from "firebase/auth"
-import { errorLog, log, auth } from "@/lib"
+import { auth } from "@/lib/firebase"
+import { log, errorLog } from "@/lib/log"
 
 export async function signinWithGoogle() {
   try {
@@ -7,19 +10,25 @@ export async function signinWithGoogle() {
     await signInWithPopup(auth, provider)
     log("User signed in with Google successful")
   } catch(error) {
-    errorLog(error, true)
+    errorLog(error)
   }
 }
 
 export async function upgradeWithGoogle() {
   try {
+    // Get now user
     const user = getAuth().currentUser
-    if (!user) return
+    if (!user || !user.isAnonymous) return
+
+    // Link
     const provider = new GoogleAuthProvider()
     await linkWithPopup(user, provider)
+
+    // Reload
+    await user.reload()
     log("User upgraded with Google successful")
   } catch (error) {
-    errorLog(error, true)
+    errorLog(error)
   }
 }
 
@@ -28,32 +37,38 @@ export async function signinWithGuest() {
     await signInAnonymously(auth)
     log("User signed in with guest successful")
   } catch (error) {
-    errorLog(error, true)
+    errorLog(error)
   }
 }
 
 export async function deleteAccount() {
-  const user = getAuth().currentUser
-  if (user) {
-    try {
-      await deleteUser(user)
-      log("User deleted")
-    } catch (error) {
-      errorLog(error, true)
-    }
+  try {
+    // Get now user
+    const user = getAuth().currentUser
+    if (!user) return
+
+    // Delete
+    await deleteUser(user)
+    log("User deleted")
+  } catch (error) {
+    errorLog(error)
   }
 }
 
 export async function signout() {
   try {
+    // Get now user
     const user = getAuth().currentUser
-    if (user?.isAnonymous) {
+    if (!user) return
+
+    // Signout
+    if (user.isAnonymous) {
       await deleteAccount()
     } else {
       await auth.signOut()
       log("User signed out")
     }
   } catch(error) {
-    errorLog(error, true)
+    errorLog(error)
   }
 }

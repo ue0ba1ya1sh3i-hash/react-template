@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button"
-import { signout, deleteAccount, auth, upgradeWithGoogle } from "@/lib"
+import { signout, deleteAccount, upgradeWithGoogle } from "@/lib/sign"
+import { auth } from "@/lib/firebase"
 import { useTranslation } from "react-i18next"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { CopyParts, ParentSettingsParts, ChildSettingsParts } from "@/components/mine/parts"
+import { CopyParts } from "@/components/mine/parts/copy"
+import { ParentSettingsParts } from "../parts/settings/parentSettingsParts"
+import { ChildSettingsParts } from "../parts/settings/childSettingsParts"
 import { useNavigate } from "react-router-dom"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 

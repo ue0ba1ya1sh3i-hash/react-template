@@ -1,4 +1,4 @@
-import { HeaderParts } from "@/components/mine/parts"
+import { HeaderParts } from "@/components/mine/parts/header"
 
 export default function App() {
   return (

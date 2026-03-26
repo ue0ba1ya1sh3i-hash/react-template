@@ -9,86 +9,79 @@
 
 ## 概要
 <p align="center">
-  <img src="./settings/screenshots/ja/1.png" width="70%">
+  <img src="./settings/screenshots/ja.png" width="70%">
 </p>
 
-<p align="center">
-  <img src="./description/screenshots/ja/2.png" width="70%">
-</p>
-
-- 作者がフルスタックプロジェクト作成の簡易化のために作成したReactのテンプレートです。
-- Shadcn UI Tailwind CSSなどを使用してモダンでシンプルなデザインを実現しています。
-- 他にもFirebaseでバックエンド(Functions)やデータ(Firestore)を管理させてセキュアで開発体験がよくなるようになっています。
+- このプロジェクトはフルスタックエンジニアがよく使う技術を使用したReactでできているテンプレートです。
 
 ## 使用技術
-- 以下は使用するおおまかな技術を書いています。
-- メインシステム
+- 以下は使用する技術を書いています。
+- メイン
   - React
   - TypeScript
-  - Vite
-- ユーティリティ
-  - i18next
-  - Zustand
 - デザイン
-  - Shadcn UI
-    - Radix UIを使用してます。
-  - Motion
   - Tailwind CSS
+  - Storybook
+  - Shadcn UI
+    - Radix UIを使用
+- アニメーション
+  - Framer Motion
+  - react-type-animation
+    - タイピングアニメーション
 - アイコン
-  - Lucide react
-  - React icons
-- クラウド
-  - GitHub
-  - Firebase
-    - Auth
-    - Firestore
-    - Functions
+  - React Icons
+  - Lucide React
+- ライブラリ
+  - Zustand
+  - i18next
+  - react-firebase-hooks
+    - FirebaseをReactのHooksで簡単に使えるもの
+  - usehooks-ts
+    - 便利Hooks集
+- ルーター
+  - react-router-dom
+  - Generouted
+    - `pages`から自動作成するライブラリ
+- サービス
+  - Sentry
   - Cloudflare
     - Pages
-    - Domain
-      - Cloudflareのドメインは安くて接続しやすいのでおすすめです。
-- その他
-  - react-firebase-hooks
-    - Firebaseの管理はこれが一番楽です。
-  - react-type-animation
-    - 最初の紹介ページの文字をタイピングする演出を賄っています。
-  - @generouted/react-router
-    - `/src/pages`ディレクトリから自動でパスを設定し`react-router-dom`のTypeScript用を使用することができます。
+    - Registrar
+  - Firebase
+    - Authentication
+    - Firestore
+    - Storage
+    - Functions
+    - Emulator
 
 ## セットアップ方法
-- Node.jsとJavaのインストールとプロジェクトの依存関係のインストール
+- Node.js、Java、プロジェクト依存のインストール
   - こちらは省略させていただきます
-  - JavaはFirebase emulatorを起動するため必要です。
+  - Javaは`Firebase emulator`を起動するため必要です。
 
 - Firebaseプロジェクトの作成
-  - Firebase Consoleにアクセスしてプロジェクトを作成してください。
-  - Functionsの第二世代を使うのでBlazeプランにしてください。
-  - AuthでEmail・Google・匿名のログイン方法を有効にしてください。
+  - `Firebase Console`にアクセスしてプロジェクトを作成してください。
+  - `Blazeプラン`にしてください。
+  - AuthenticationでEmail、Google、匿名のログインを有効にしてください。
 
 - Firebase CLIにログイン
-  - `npm install -g firebase-tools`でFirebase CLIをインストールしてください。
+  - `npm install -g firebase-tools`で`Firebase CLI`をインストールしてください。
   - `firebase login`でプロジェクトを作成したアカウントでログインしてください。
-  - `.firebaserc`を自分のプロジェクトIDに変更してください。
 
 - scripts/secret.jsonの設定
-  - Firebase Consoleでプロジェクトの設定のサービスアカウントに移動してください。
-  - Firebase Admin SDKの新しい秘密鍵を作成を押してダウンロードしたJSONの名前を`secret.json`に変更してルートディレクトリ配下に配置してください。
-
-- Firestoreの初期データの作成
-  - `npm run emulator`でエミュレーターを起動しておいてください。
+  - `Firebase Console`で`プロジェクトの設定`の`サービスアカウント`に移動してください。
+  - `Firebase Admin SDK`の`新しい秘密鍵を作成`を押してダウンロードしたJSONの名前を`secret.json`に変更してルートディレクトリ配下に配置してください。
 
 - セットアップコマンドの実行
   - `npm run setup`で`Normal setup`を選んで画面の通りに必要事項を入力してください。
 
-- テーマカラー・アイコンの設定
-  - `public/files/icons/icon.svg`と`src/component/mine/parts/mine.tsx`の両方を更新してアイコンを設定してください。
-  - 現在のテーマカラーは紫色(白・黒両対応)になっています。変えたい人は`src/index.css`で編集してください。
+- 開発時
+  - `Firebase Emulator`は初期化が必要なので同じく`npm run setup`で`Only emulator`を選択して初期化をしてください。
 
-- GitHubに公開&Cloudflare Pagesの接続
+- デプロイ
   - GitHubにプロジェクトを公開してください。
-  - Cloudflare PagesにGitHub経由でリポジトリを接続して下さい。
-  - フレームワークは`React(Vite)`を選択して環境変数も記入してください。
-  - 保存してデプロイしてください。
+  - `Cloudflare Pages`にGitHub経由でリポジトリを接続して下さい。
+    - フレームワークは`React(Vite)`を選択して環境変数も記入してください。
 
 ## ファイル構成
 - ほぼすべてのファイルの最初にコメントでそのファイルの説明を書いています。

@@ -1,12 +1,21 @@
 // This file is the i18n initialization file.
 
 import i18n from "i18next"
-import { initReactI18next } from "react-i18next"
 import languageDetector from "i18next-browser-languagedetector"
+import { initReactI18next } from "react-i18next"
 
 // Translate files
 import en from "@/translate/en.json"
 import ja from "@/translate/ja.json"
+
+// Set translate type
+declare module "i18next" {
+  interface CustomTypeOptions {
+    resources: {
+      translation: typeof en
+    }
+  }
+}
 
 i18n.use(languageDetector).use(initReactI18next).init({
   resources: {

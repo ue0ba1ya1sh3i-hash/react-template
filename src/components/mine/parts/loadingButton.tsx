@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
-import { useLoadingStore } from "@/hooks/store"
+import { useLoadingStore } from "@/hooks/store/loading"
 
 type LoadingButtonProps = React.ComponentProps<typeof Button> & {
   onClick: () => Promise<void> | void,

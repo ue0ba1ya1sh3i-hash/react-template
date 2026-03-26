@@ -2,14 +2,15 @@
 import { Field, FieldDescription, FieldGroup, FieldLabel, FieldSeparator } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 
-import { env } from "@/lib"
+import { env } from "@/lib/env"
 import { Link, useNavigate } from "@/router"
-import { MineIcon, LoadingButtonParts } from "@/components/mine/parts"
+import { MineIcon } from "@/components/mine/parts/icon"
+import { LoadingButtonParts } from "../parts/loadingButton"
 import { FaGoogle } from "react-icons/fa"
 import { CircleUser } from "lucide-react"
-import { signinWithGoogle, signinWithGuest } from "@/lib"
+import { signinWithGoogle, signinWithGuest } from "@/lib/sign"
 import { useTranslation } from "react-i18next"
-import { FadeinAnimation } from "@/components/mine/animation"
+import { FadeinAnimation } from "@/components/mine/animation/fadein"
 
 export function LoginTemplate({ type }: { type: "signin" | "signup" }) {
   const { t } = useTranslation()

@@ -1,3 +1,5 @@
+// This file is a store related to theme.
+
 import { create } from "zustand"
 import { persist, createJSONStorage } from "zustand/middleware"
 

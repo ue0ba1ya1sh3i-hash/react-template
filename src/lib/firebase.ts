@@ -1,3 +1,5 @@
+// This file is the Firebase initialization file.
+
 import { initializeApp } from "firebase/app"
 import { getAuth, connectAuthEmulator } from "firebase/auth"
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore"
@@ -13,13 +15,13 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 }
 
-// 初期化
+// Init apps
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const functions = getFunctions(app)
 
-// エミュレート
+// Set emulator mode
 if (import.meta.env.DEV) {
   connectAuthEmulator(auth, "http://localhost:9099")
   connectFirestoreEmulator(db, "localhost", 8080)

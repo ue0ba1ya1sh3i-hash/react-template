@@ -1,25 +1,38 @@
-// This file determines which paths to exclude depending on whether you are logged in or not.
+// This file monitors the sign-in status and sets excluded paths.
 
-import { auth } from "@/lib"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { useNavigate } from "@/router"
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
+import { useNavigate } from "@/router"
+import { auth } from "@/lib/firebase"
+import { useLoading } from "@/hooks/loading"
 
 export function useSighinSetup() {
-    const [user, loading] = useAuthState(auth)
-    const navigate = useNavigate()
-    const location = useLocation()
+  const [user, loading] = useAuthState(auth)
+  const { isLoading, start, finish } = useLoading()
+  const navigate = useNavigate()
+  const locationPath = useLocation().pathname
 
-    // Set ignore paths
-    const ignorePaths = ["/signin", "/signup", "/introduce", "/updates", "/terms", "/privacy"]
-    const absoluteIgnorePaths = ["/signin", "/signup"]
+  // Set ignore paths
+  const signoutIgnorePath = ["/", "/admin"]
+  const signinIgnorePath = ["/signin", "/signup"]
 
-    useEffect(() => {
-      if (!loading && !user && !ignorePaths.includes(location.pathname)) {
+  // 
+  useEffect(() => {
+    start("sign")
+  }, [])
+
+  useEffect(() => {
+    if (!loading) {
+      if (!user && signoutIgnorePath.includes(locationPath)) {
         navigate("/introduce")
-      } else if (!loading && user && absoluteIgnorePaths.includes(location.pathname)) {
+      } else if (user && signinIgnorePath.includes(locationPath)) {
         navigate("/")
       }
-    }, [user, loading, location.pathname])
+      
+      finish("sign")
+    }
+  }, [user, loading, locationPath])
+
+  return { isLoading }
 }

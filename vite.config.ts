@@ -6,25 +6,23 @@ import chalk from "chalk"
 import react from "@vitejs/plugin-react-swc"
 import tailwindcss from "@tailwindcss/vite"
 import generouted from "@generouted/react-router/plugin"
-
-// Self plugin
 import { changeHtml } from "./projectSettings/plugins/changeHtml"
 
 // Files
-import settings from "./projectSettings/settings.json"
+import settingsFile from "./src/settings.json"
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
 
-  // Set confirm env
+  // Confirm env
   const missingNum: string[] = []
-  for (const key of settings.requireEnv) {
+  for (const key of settingsFile.requireEnv) {
     if (!env[key.name]) {
       missingNum.push(key.name)
     }
   }
 
-  // Log & exit
+  // Alert missing env
   if (missingNum.length > 0) {
     console.log(`${chalk.red("×")} Missing env`)
     console.log(`${chalk.red("×")} Please check if the following environment variables are set.`)

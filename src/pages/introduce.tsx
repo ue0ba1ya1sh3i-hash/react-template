@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Info } from "lucide-react"
 import { Link } from "@/router"
-import { env } from "@/lib"
+import { env } from "@/lib/env"
 import { TypeAnimation } from "react-type-animation"
 import { useTranslation } from "react-i18next"
-import { FooterParts, HeaderParts } from "@/components/mine/parts"
-import { FadeinAnimation } from "@/components/mine/animation"
+import { HeaderParts } from "@/components/mine/parts/header"
+import { FooterParts } from "@/components/mine/parts/footer"
+import { FadeinAnimation } from "@/components/mine/animation/fadein"
 
 export default function App() {
   const { t } = useTranslation()
@@ -29,13 +30,12 @@ export default function App() {
               <Button variant="outline">{t("pages.introduce.getStarted")}</Button>
             </Link>
 
-            <Link to="/updates">
+            <Link to="/notice">
               <Button><Info /> {t("pages.introduce.viewUpdates")}</Button>
             </Link>
           </div>
         </FadeinAnimation>
       </div>
-
       <FooterParts />
     </>
   )

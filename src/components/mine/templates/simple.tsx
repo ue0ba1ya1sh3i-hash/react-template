@@ -1,17 +1,20 @@
 import { useTranslation } from "react-i18next"
 import { Button } from "@/components/ui/button"
-import { HeaderParts, FooterParts } from "@/components/mine/parts"
-import { FadeinAnimation } from "@/components/mine/animation"
+import { HeaderParts } from "@/components/mine/parts/header"
+import { FooterParts } from "../parts/footer"
+import { FadeinAnimation } from "@/components/mine/animation/fadein"
+import { useTitle } from "@/hooks/title"
 
-export function SimpleTemplate({ title, children, description }: { title: string, children?: React.ReactNode, description?: string }) {
+export function SimpleTemplate({ children, description }: { children?: React.ReactNode, description?: string }) {
   const { t } = useTranslation()
+  const { key } = useTitle()
 
   return (
     <>
       <HeaderParts />
       <div className="min-h-svh px-4 flex flex-col items-center justify-center overflow-hidden">
         <FadeinAnimation className="w-full max-w-2xl gap-4 flex flex-col">
-          <p className="text-2xl font-bold">{title}</p>
+          <p className="text-2xl font-bold">{t(key as any)}</p>
           
           {description && (
             <p className="text-md">{description}</p>

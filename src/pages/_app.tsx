@@ -1,3 +1,5 @@
+// This file is the parent element of the page component.
+
 import { Outlet } from "react-router-dom"
 
 // Setup hooks
@@ -6,13 +8,19 @@ import { usePageSetup } from "@/setup/hooks/useTitleSetup"
 import { useThemeSetup } from "@/setup/hooks/useThemeSetup"
 
 export default function Layout() {
-  useSighinSetup()
+  const { isLoading } = useSighinSetup()
   usePageSetup()
   useThemeSetup()
 
-  return (
-    <div className="bg-background text-foreground">
-      <Outlet />
-    </div>
-  )
+  if (isLoading) {
+    return (
+      <div className="bg-background text-foreground"></div>
+    )
+  } else {
+    return (
+      <div className="bg-background text-foreground">
+        <Outlet />
+      </div>
+    )
+  }
 }

@@ -81,14 +81,15 @@
     }
   },
   "title": {
-    "updates": "Updates",
+    "notice": "Notice",
     "signin": "Sign in",
     "privacy": "Privacy policy",
     "terms": "Terms of service",
     "signup": "Sign up",
     "settings": "Settings",
     "index": "Home",
-    "introduce": "Simple react template"
+    "introduce": "Simple react template",
+    "admin": "Admin page"
   },
   "main": {
     "goBack": "Go back",

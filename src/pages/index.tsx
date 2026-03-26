@@ -1,8 +1,8 @@
-import { HeaderParts } from "@/components/mine/parts"
+import { HeaderParts } from "@/components/mine/parts/header"
 import { useTranslation } from "react-i18next"
 import { Button } from "@/components/ui/button"
 import { FaGithub } from "react-icons/fa"
-import { FadeinAnimation } from "@/components/mine/animation"
+import { FadeinAnimation } from "@/components/mine/animation/fadein"
 
 export default function App() {
   const { t } = useTranslation()

@@ -1,6 +1,6 @@
-// This file allows you to decide whether to add a dark class to the body tag from the Theme store.
+// This file changes the theme from the theme store.
 
-import { useThemeStore } from "@/hooks/store"
+import { useThemeStore } from "@/hooks/store/theme"
 import { useEffect } from "react"
 
 export function useThemeSetup() {

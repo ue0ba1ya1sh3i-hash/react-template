@@ -12,9 +12,7 @@
       "disallowLegacyRuntimeConfig": true,
 
       "ignore": [
-        "node_modules",
-        ".git",
-        "*.log"
+        "node_modules"
       ],
 
       "predeploy": [
@@ -39,8 +37,6 @@
     "ui": {
       "enabled": true,
       "port": "4000"
-    },
-
-    "singleProjectMode": true
+    }
   }
 }

@@ -38,10 +38,8 @@ function Updates() {
 }
 
 export default function App() {
-  const { t } = useTranslation()
-
   return (
-    <SimpleTemplate title={t("title.updates")}>
+    <SimpleTemplate>
       <Updates />
     </SimpleTemplate>
   )

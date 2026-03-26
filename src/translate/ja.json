@@ -81,14 +81,15 @@
     }
   },
   "title": {
-    "updates": "更新履歴",
+    "notice": "お知らせ",
     "signin": "サインイン",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
     "signup": "サインアップ",
     "settings": "設定",
     "index": "ホーム",
-    "introduce": "Simple react template"
+    "introduce": "Simple react template",
+    "admin": "管理ページ"
   },
   "main": {
     "goBack": "前のページに戻る",

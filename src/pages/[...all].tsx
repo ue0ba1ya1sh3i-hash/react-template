@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next"
-import { SimpleTemplate } from "@/components/mine/templates"
+import { SimpleTemplate } from "@/components/mine/templates/simple"
 
 export default function App() {
   const { t } = useTranslation()
 
   return (
-    <SimpleTemplate title="404 | Not Found" description={t("pages.notfound.message")} />
+    <SimpleTemplate description={t("pages.notfound.message")} />
   )
 }

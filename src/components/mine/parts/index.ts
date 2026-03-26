@@ -1,7 +1,0 @@
-export { HeaderParts } from "./header"
-export { FooterParts } from "./footer"
-export { MineIcon } from "./mine"
-export { CopyParts } from "./copy"
-export { ChildSettingsParts } from "./settings/childSettingsParts"
-export { ParentSettingsParts } from "./settings/parentSettingsParts"
-export { LoadingButtonParts } from "./loadingButton"

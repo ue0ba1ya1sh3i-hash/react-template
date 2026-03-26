@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
-import { useThemeStore } from "@/hooks/store"
-import { ChildSettingsParts, ParentSettingsParts } from "@/components/mine/parts"
+import { useThemeStore } from "@/hooks/store/theme"
+import { ChildSettingsParts } from "@/components/mine/parts/settings/childSettingsParts"
+import { ParentSettingsParts } from "@/components/mine/parts/settings/parentSettingsParts"
 
 export function AccessibilitySettings() {
   const { t, i18n } = useTranslation()
@@ -14,7 +15,7 @@ export function AccessibilitySettings() {
 
         <ChildSettingsParts isFlex>
           <p>{t("pages.settings.accessibility.language.title")}</p>
-          <Select value={i18n.language} onValueChange={i18n.changeLanguage}>
+          <Select defaultValue={i18n.language} onValueChange={i18n.changeLanguage}>
             <SelectTrigger className="w-fit">
               <SelectValue placeholder={t("pages.settings.accessibility.language.select")} />
             </SelectTrigger>

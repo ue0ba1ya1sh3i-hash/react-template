@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 
 export function MineIcon({ className, ...props }: React.SVGProps<SVGSVGElement>) {
   return (

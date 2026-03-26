@@ -10,6 +10,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    /* Set JSON as the type */
+    "resolveJsonModule": true
   }
 }

@@ -8,12 +8,12 @@ export type Path =
   | `/`
   | `/admin`
   | `/introduce`
+  | `/notice`
   | `/privacy`
   | `/settings`
   | `/signin`
   | `/signup`
   | `/terms`
-  | `/updates`
 
 export type Params = {
   '/*': { '*': string }

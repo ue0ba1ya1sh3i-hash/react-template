@@ -1,3 +1,5 @@
+// This file is a store related to loading.
+
 import { create } from "zustand"
 
 export const useLoadingStore = create<{
