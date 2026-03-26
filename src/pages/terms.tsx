@@ -36,7 +36,7 @@ export default function App() {
   const { t } = useTranslation()
 
   return (
-    <SimpleTemplate title={t("title.terms")} description={t("pages.terms.description")}>
+    <SimpleTemplate description={t("pages.terms.description")}>
       <Terms />
     </SimpleTemplate>
   )
