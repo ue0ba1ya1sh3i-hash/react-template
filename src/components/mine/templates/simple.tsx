@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next"
-import { Button } from "@/components/ui/button"
 import { HeaderParts } from "@/components/mine/parts/header"
 import { FooterParts } from "../parts/footer"
 import { FadeinAnimation } from "@/components/mine/animation/fadein"
 import { useTitle } from "@/hooks/title"
+import { GoBackButtonParts } from "@/components/mine/parts/goBackButton"
 
 export function SimpleTemplate({ children, description }: { children?: React.ReactNode, description?: string }) {
   const { t } = useTranslation()
@@ -21,7 +21,7 @@ export function SimpleTemplate({ children, description }: { children?: React.Rea
           )}
 
           {children}
-          <Button className="w-fit" onClick={() => window.history.back()}>{t("main.goBack")}</Button>
+          <GoBackButtonParts className="w-fit" />
         </FadeinAnimation>
       </div>
       <FooterParts />
