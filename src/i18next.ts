@@ -8,7 +8,7 @@ import { initReactI18next } from "react-i18next"
 import en from "@/translate/en.json"
 import ja from "@/translate/ja.json"
 
-// Set translate type
+// Set the type of the translation resources
 declare module "i18next" {
   interface CustomTypeOptions {
     resources: {
@@ -17,6 +17,7 @@ declare module "i18next" {
   }
 }
 
+// Initialize i18n
 i18n.use(languageDetector).use(initReactI18next).init({
   resources: {
     en: { translation: en },

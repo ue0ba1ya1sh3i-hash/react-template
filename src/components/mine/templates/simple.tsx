@@ -7,14 +7,14 @@ import { useTitle } from "@/hooks/title"
 
 export function SimpleTemplate({ children, description }: { children?: React.ReactNode, description?: string }) {
   const { t } = useTranslation()
-  const { key } = useTitle()
+  const { title } = useTitle()
 
   return (
     <>
       <HeaderParts />
       <div className="min-h-svh px-4 flex flex-col items-center justify-center overflow-hidden">
         <FadeinAnimation className="w-full max-w-2xl gap-4 flex flex-col">
-          <p className="text-2xl font-bold">{t(key as any)}</p>
+          <p className="text-2xl font-bold">{title}</p>
           
           {description && (
             <p className="text-md">{description}</p>

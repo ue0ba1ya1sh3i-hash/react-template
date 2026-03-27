@@ -9,22 +9,22 @@ type LoadingButtonProps = React.ComponentProps<typeof Button> & {
 
 export function LoadingButtonParts({ onClick, children, groupType, ...props }: LoadingButtonProps) {
   const {
-    isSignLoading,
-    setIsSignLoading
+    signLoading,
+    setSignLoading
   } = useLoadingStore()
 
   const handleClick = async () => {
-    setIsSignLoading(true)
+    setSignLoading(true)
     try {
       await onClick()
     } finally {
-      setIsSignLoading(false)
+      setSignLoading(false)
     }
   }
 
   return (
-    <Button onClick={handleClick} disabled={isSignLoading} {...props}>
-      {isSignLoading ? (
+    <Button onClick={handleClick} disabled={signLoading} {...props}>
+      {signLoading ? (
         <>
           <Spinner data-icon="inline-start" />
           Processing...

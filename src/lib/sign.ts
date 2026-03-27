@@ -1,6 +1,8 @@
 // This file contains functions related to login.
 
 import { GoogleAuthProvider, linkWithPopup, signInAnonymously, signInWithPopup, deleteUser, getAuth } from "firebase/auth"
+
+// Libraries
 import { auth } from "@/lib/firebase"
 import { log, errorLog } from "@/lib/log"
 

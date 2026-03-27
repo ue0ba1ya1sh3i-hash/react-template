@@ -4,35 +4,26 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { useNavigate } from "@/router"
+
+// Libraries
 import { auth } from "@/lib/firebase"
-import { useLoading } from "@/hooks/loading"
 
 export function useSighinSetup() {
   const [user, loading] = useAuthState(auth)
-  const { isLoading, start, finish } = useLoading()
   const navigate = useNavigate()
-  const locationPath = useLocation().pathname
+  const path = useLocation().pathname
 
   // Set ignore paths
   const signoutIgnorePath = ["/", "/admin"]
   const signinIgnorePath = ["/signin", "/signup"]
 
-  // 
-  useEffect(() => {
-    start("sign")
-  }, [])
-
   useEffect(() => {
     if (!loading) {
-      if (!user && signoutIgnorePath.includes(locationPath)) {
+      if (!user && signoutIgnorePath.includes(path)) {
         navigate("/introduce")
-      } else if (user && signinIgnorePath.includes(locationPath)) {
+      } else if (user && signinIgnorePath.includes(path)) {
         navigate("/")
       }
-      
-      finish("sign")
     }
-  }, [user, loading, locationPath])
-
-  return { isLoading }
+  }, [user, loading, path, navigate])
 }
