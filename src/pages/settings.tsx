@@ -3,12 +3,12 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "@/lib/firebase"
 
 // Parts
-import { HeaderParts } from "@/components/mine/parts/header"
-import { FooterParts } from "@/components/mine/parts/footer"
+import { HeaderBlocks } from "@/components/mine/blocks/header"
+import { FooterBlocks } from "@/components/mine/blocks/footer"
 
 // 設定コンポーネント
-import { AccountSettings } from "@/components/mine/settings/account"
-import { AccessibilitySettings } from "@/components/mine/settings/accessibility"
+import { AccountSettings } from "@/components/mine/settings/blocks/account"
+import { AccessibilitySettings } from "@/components/mine/settings/blocks/accessibility"
 
 export default function App() {
   const { t } = useTranslation()
@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div className="min-h-svh flex flex-col gap-6">
-      <HeaderParts sticky />
+      <HeaderBlocks />
 
       <div className="px-4 flex flex-col gap-6">
         <p className="font-bold text-2xl">{t("pages.settings.title.main")}</p>
@@ -24,7 +24,7 @@ export default function App() {
         <AccessibilitySettings />
       </div>
 
-      <FooterParts />
+      <FooterBlocks />
     </div>
   )
 }

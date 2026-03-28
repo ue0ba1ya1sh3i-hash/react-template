@@ -1,4 +1,4 @@
-// This file is a store related to loading.
+// This file is a store manages loading states.
 
 import { create } from "zustand"
 

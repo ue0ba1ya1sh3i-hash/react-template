@@ -3,12 +3,13 @@
 import { Outlet } from "react-router-dom"
 
 // Setup hooks
-import { useSighinSetup } from "@/setup/hooks/useSignSetup"
+import { useSigninSetup } from "@/setup/hooks/useSignSetup"
 import { usePageSetup } from "@/setup/hooks/useTitleSetup"
 import { useThemeSetup } from "@/setup/hooks/useThemeSetup"
 
 export default function Layout() {
-  useSighinSetup()
+  // Run setup hooks
+  useSigninSetup()
   usePageSetup()
   useThemeSetup()
 

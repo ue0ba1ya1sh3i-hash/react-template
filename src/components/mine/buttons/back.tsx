@@ -5,7 +5,7 @@ import type { ComponentProps } from "react"
 
 type GoBackButtonPartsProps = Omit<ComponentProps<typeof Button>, "onClick">
 
-export function GoBackButtonParts({ children, ...props }: GoBackButtonPartsProps) {
+export function BackButton({ children, ...props }: GoBackButtonPartsProps) {
   const { t } = useTranslation()
   const navigate = useNavigate()
 

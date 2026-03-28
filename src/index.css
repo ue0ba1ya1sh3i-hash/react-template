@@ -7,11 +7,12 @@
 
 /* Scroll ber */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  /* bg-muted/30 */
+  background-color: color-mix(in oklab, var(--muted) 30%, transparent);
 }
 
 ::-webkit-scrollbar-track {
@@ -141,6 +142,7 @@
     }
 }
 
+/* Firebase emulator warning */
 p.firebase-emulator-warning {
   display: none;
 }

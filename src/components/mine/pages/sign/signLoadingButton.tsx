@@ -7,7 +7,7 @@ type LoadingButtonProps = React.ComponentProps<typeof Button> & {
   groupType: "sign"
 }
 
-export function LoadingButtonParts({ onClick, children, groupType, ...props }: LoadingButtonProps) {
+export function SignLoadingButton({ onClick, children, groupType, ...props }: LoadingButtonProps) {
   const {
     signLoading,
     setSignLoading

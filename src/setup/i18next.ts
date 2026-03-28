@@ -4,11 +4,11 @@ import i18n from "i18next"
 import languageDetector from "i18next-browser-languagedetector"
 import { initReactI18next } from "react-i18next"
 
-// Translate files
+// Files
 import en from "@/translate/en.json"
 import ja from "@/translate/ja.json"
 
-// Set the type of the translation resources
+// Extend the type definitions of i18next with translation files.
 declare module "i18next" {
   interface CustomTypeOptions {
     resources: {
@@ -17,7 +17,7 @@ declare module "i18next" {
   }
 }
 
-// Initialize i18n
+// Init
 i18n.use(languageDetector).use(initReactI18next).init({
   resources: {
     en: { translation: en },

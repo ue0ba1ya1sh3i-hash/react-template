@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { useThemeStore } from "@/hooks/store/theme"
-import { ChildSettingsParts } from "@/components/mine/parts/settings/childSettingsParts"
-import { ParentSettingsParts } from "@/components/mine/parts/settings/parentSettingsParts"
+import { ChildSettingsParts } from "@/components/mine/settings/parts/child"
+import { ParentSettingsParts } from "@/components/mine/settings/parts/parent"
 
 export function AccessibilitySettings() {
   const { t, i18n } = useTranslation()

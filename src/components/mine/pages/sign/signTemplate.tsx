@@ -5,14 +5,14 @@ import { Input } from "@/components/ui/input"
 import { env } from "@/lib/env"
 import { Link, useNavigate } from "@/router"
 import { MineIcon } from "@/components/mine/parts/icon"
-import { LoadingButtonParts } from "../parts/loadingButton"
+import { SignLoadingButton } from "./signLoadingButton"
 import { FaGoogle } from "react-icons/fa"
 import { CircleUser } from "lucide-react"
 import { signinWithGoogle, signinWithGuest } from "@/lib/sign"
 import { useTranslation } from "react-i18next"
-import { FadeinAnimation } from "@/components/mine/animation/fadein"
+import { FadeinAnimation } from "@/components/mine/animations/fadein"
 
-export function LoginTemplate({ type }: { type: "signin" | "signup" }) {
+export function SignTemplate({ type }: { type: "signin" | "signup" }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const reverseType = type === "signin" ? "signup" : "signin"
@@ -55,15 +55,15 @@ export function LoginTemplate({ type }: { type: "signin" | "signup" }) {
               </Field>
 
               <Field>
-                <LoadingButtonParts groupType="sign" type="submit" onClick={() => {
+                <SignLoadingButton groupType="sign" type="submit" onClick={() => {
                   window.alert("clicked")
-                }}>{t(`pages.${type}.submit`)}</LoadingButtonParts>
+                }}>{t(`pages.${type}.submit`)}</SignLoadingButton>
               </Field>
 
               <FieldSeparator>{t("components.sign.or")}</FieldSeparator>
 
               <Field className="grid gap-2 sm:grid-cols-2">
-                <LoadingButtonParts
+                <SignLoadingButton
                   variant="outline"
                   groupType="sign"
                   onClick={async () => {
@@ -73,9 +73,9 @@ export function LoginTemplate({ type }: { type: "signin" | "signup" }) {
                 >
                   <CircleUser />
                   {t(`pages.${type}.continue.guest`)}
-                </LoadingButtonParts>
+                </SignLoadingButton>
 
-                <LoadingButtonParts
+                <SignLoadingButton
                   variant="outline"
                   groupType="sign"
                   onClick={async () => {
@@ -84,7 +84,7 @@ export function LoginTemplate({ type }: { type: "signin" | "signup" }) {
                 }}>
                   <FaGoogle />
                   {t(`pages.${type}.continue.google`)}
-                </LoadingButtonParts>
+                </SignLoadingButton>
               </Field>
             </FieldGroup>
           </form>

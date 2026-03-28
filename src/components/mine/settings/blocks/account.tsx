@@ -3,9 +3,9 @@ import { signout, deleteAccount, upgradeWithGoogle } from "@/lib/sign"
 import { auth } from "@/lib/firebase"
 import { useTranslation } from "react-i18next"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { CopyParts } from "@/components/mine/parts/copy"
-import { ParentSettingsParts } from "../parts/settings/parentSettingsParts"
-import { ChildSettingsParts } from "../parts/settings/childSettingsParts"
+import { CopyButton } from "@/components/mine/buttons/copy"
+import { ParentSettingsParts } from "../parts/parent"
+import { ChildSettingsParts } from "../parts/child"
 import { useNavigate } from "react-router-dom"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
@@ -20,7 +20,7 @@ export function AccountSettings() {
 
       <ChildSettingsParts>
         <p>{t("pages.settings.account.uid")}</p>
-        <CopyParts text={user?.uid} />
+        <CopyButton text={user?.uid} />
       </ChildSettingsParts>
 
       {user?.isAnonymous && (

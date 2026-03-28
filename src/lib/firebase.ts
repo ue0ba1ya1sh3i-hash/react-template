@@ -15,13 +15,13 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 }
 
-// Init apps
+// Init
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const functions = getFunctions(app)
 
-// Set emulator mode
+// Connect to emulators in development mode
 if (import.meta.env.DEV) {
   connectAuthEmulator(auth, "http://localhost:9099")
   connectFirestoreEmulator(db, "localhost", 8080)

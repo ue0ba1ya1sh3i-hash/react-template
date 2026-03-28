@@ -1,4 +1,4 @@
-// This file dynamically retrieves the title using hooks.
+// This file dynamically changes its title.
 
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -11,6 +11,7 @@ export function useTitle() {
   const { t, i18n } = useTranslation()
   const [title, setTitle] = useState("")
 
+  // Check translation existence
   useEffect(() => {
     if (i18n.exists(key as any)) {
       setTitle(t(key as any))

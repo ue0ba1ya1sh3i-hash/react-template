@@ -1,6 +1,13 @@
-// This file contains functions related to login.
+// This file is signing functions.
 
-import { GoogleAuthProvider, linkWithPopup, signInAnonymously, signInWithPopup, deleteUser, getAuth } from "firebase/auth"
+import {
+  GoogleAuthProvider,
+  linkWithPopup,
+  signInAnonymously,
+  signInWithPopup,
+  deleteUser,
+  getAuth
+} from "firebase/auth"
 
 // Libraries
 import { auth } from "@/lib/firebase"
@@ -8,9 +15,13 @@ import { log, errorLog } from "@/lib/log"
 
 export async function signinWithGoogle() {
   try {
+    // Confirm user is not signed in
+    const user = getAuth().currentUser
+    if (user) return
+
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider)
-    log("User signed in with Google successful")
+    log("User signed in with Google.")
   } catch(error) {
     errorLog(error)
   }
@@ -18,17 +29,17 @@ export async function signinWithGoogle() {
 
 export async function upgradeWithGoogle() {
   try {
-    // Get now user
+    // Confirm user is guest
     const user = getAuth().currentUser
     if (!user || !user.isAnonymous) return
 
-    // Link
+    // Upgrade with Google
     const provider = new GoogleAuthProvider()
     await linkWithPopup(user, provider)
 
     // Reload
     await user.reload()
-    log("User upgraded with Google successful")
+    log("User upgraded with Google.")
   } catch (error) {
     errorLog(error)
   }
@@ -36,8 +47,12 @@ export async function upgradeWithGoogle() {
 
 export async function signinWithGuest() {
   try {
+    // Confirm user is not signed in
+    const user = getAuth().currentUser
+    if (user) return
+
     await signInAnonymously(auth)
-    log("User signed in with guest successful")
+    log("User signed in with guest.")
   } catch (error) {
     errorLog(error)
   }
@@ -45,11 +60,10 @@ export async function signinWithGuest() {
 
 export async function deleteAccount() {
   try {
-    // Get now user
+    // Confirm user is signed in
     const user = getAuth().currentUser
     if (!user) return
 
-    // Delete
     await deleteUser(user)
     log("User deleted")
   } catch (error) {
@@ -59,11 +73,10 @@ export async function deleteAccount() {
 
 export async function signout() {
   try {
-    // Get now user
+    // Confirm user is signed in
     const user = getAuth().currentUser
     if (!user) return
 
-    // Signout
     if (user.isAnonymous) {
       await deleteAccount()
     } else {

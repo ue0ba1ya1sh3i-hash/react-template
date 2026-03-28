@@ -5,7 +5,7 @@ import { routes } from "@generouted/react-router"
 
 // Run
 import "@/index.css"
-import "@/i18next"
+import "@/setup/i18next"
 
 const router = createBrowserRouter(routes)
 createRoot(document.getElementById("root")!).render(

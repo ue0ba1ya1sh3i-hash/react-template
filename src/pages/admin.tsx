@@ -1,9 +1,9 @@
-import { HeaderParts } from "@/components/mine/parts/header"
+import { HeaderBlocks } from "@/components/mine/blocks/header"
 
 export default function App() {
   return (
     <div className="min-h-svh">
-      <HeaderParts sticky={true} />
+      <HeaderBlocks />
     </div>
   )
 }

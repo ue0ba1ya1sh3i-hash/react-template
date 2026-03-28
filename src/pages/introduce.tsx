@@ -4,16 +4,16 @@ import { Link } from "@/router"
 import { env } from "@/lib/env"
 import { TypeAnimation } from "react-type-animation"
 import { useTranslation } from "react-i18next"
-import { HeaderParts } from "@/components/mine/parts/header"
-import { FooterParts } from "@/components/mine/parts/footer"
-import { FadeinAnimation } from "@/components/mine/animation/fadein"
+import { HeaderBlocks } from "@/components/mine/blocks/header"
+import { FooterBlocks } from "@/components/mine/blocks/footer"
+import { FadeinAnimation } from "@/components/mine/animations/fadein"
 
 export default function App() {
   const { t } = useTranslation()
 
   return (
     <>
-      <HeaderParts />
+      <HeaderBlocks />
       <div className="min-h-svh overflow-hidden px-4">
         <FadeinAnimation className="flex flex-col gap-8 justify-center min-h-svh items-center">
           <TypeAnimation
@@ -36,7 +36,7 @@ export default function App() {
           </div>
         </FadeinAnimation>
       </div>
-      <FooterParts />
+      <FooterBlocks />
     </>
   )
 }

@@ -1,4 +1,4 @@
-// This file monitors the sign-in status and sets excluded paths.
+// This file monitors the sign-in status and redirects the user to the appropriate page.
 
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useEffect } from "react"
@@ -8,15 +8,16 @@ import { useNavigate } from "@/router"
 // Libraries
 import { auth } from "@/lib/firebase"
 
-export function useSighinSetup() {
+export function useSigninSetup() {
   const [user, loading] = useAuthState(auth)
   const navigate = useNavigate()
   const path = useLocation().pathname
 
-  // Set ignore paths
+  // Ignore paths
   const signoutIgnorePath = ["/", "/admin"]
   const signinIgnorePath = ["/signin", "/signup"]
 
+  // Redirect based on sign-in status
   useEffect(() => {
     if (!loading) {
       if (!user && signoutIgnorePath.includes(path)) {

@@ -1,4 +1,4 @@
-// This file is loging output.
+// This file outputs logs and errors.
 
 export function errorLog(error: unknown) {
   console.error(error)

@@ -1,7 +1,7 @@
-import { LoginTemplate } from "@/components/mine/templates/sign"
+import { SignTemplate } from "@/components/mine/pages/sign/signTemplate"
 
 export default function App() {
   return (
-    <LoginTemplate type="signup" />
+    <SignTemplate type="signup" />
   )
 }

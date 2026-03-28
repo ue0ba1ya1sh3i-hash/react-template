@@ -7,13 +7,13 @@ import { useFirestore } from "@/hooks/useFirestore"
 function Updates() {
   const { t } = useTranslation()
 
-  const { firestoreResult, firestoreLoading, firestoreError } = useFirestore("public", "updates")
-  const updateData = firestoreResult?.data()
+  const { value, loading, error } = useFirestore("public", "updates")
+  const updateData = value?.data()
 
-  if (firestoreLoading) return null
+  if (loading) return null
 
-  if (firestoreError) {
-    errorLog(firestoreError)
+  if (error) {
+    errorLog(error)
     return <p>{t("main.error")}</p>
   }
 
