@@ -3,10 +3,13 @@
 import { Copy, CopyCheck } from "lucide-react"
 import { useState } from "react"
 
+// Libraries
+import { cn } from "@/lib/utils"
+
 // Components
 import { Button } from "@/components/ui/button"
 
-export function CopyButton({ text }: { text?: string }) {
+export function CopyButton({ text, className, ...props }: { text?: string; className?: string }) {
   const [isClicked, setIsClicked] = useState(false)
 
   const handleCopy = async () => {
@@ -22,7 +25,7 @@ export function CopyButton({ text }: { text?: string }) {
 
   if (!text) {
     return (
-      <Button className="w-50" variant="outline">
+      <Button className={cn("w-50", className)} variant="outline" {...props}>
         <p className="w-40 overflow-hidden truncate text-left">Loading...</p>
         <Copy className="cursor-pointer w-10" />
       </Button>
@@ -30,7 +33,7 @@ export function CopyButton({ text }: { text?: string }) {
   }
 
   return (
-    <Button className="w-50" onClick={handleCopy} variant="outline">
+    <Button className={cn("w-50", className)} onClick={handleCopy} variant="outline" {...props}>
       <p className="w-40 overflow-hidden truncate text-left">{text}</p>
       {isClicked ? (
         <CopyCheck className="cursor-pointer w-10" />

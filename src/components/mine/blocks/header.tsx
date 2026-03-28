@@ -1,3 +1,5 @@
+// This file is main header.
+
 import { Link } from "@/router"
 import { LogIn, Settings } from "lucide-react"
 import { useTranslation } from "react-i18next"
@@ -44,10 +46,10 @@ function Signout({ fixed }: Header) {
 
   return (
     <div className={cn(
-      "top-0 w-full py-4 px-4 lg:px-20",
+      "top-0 w-full p-4 pb-0",
       fixed ? "fixed" : "sticky"
     )}>
-      <div className="w-auto px-4 py-3.5 items-center flex gap-4 bg-muted/30 rounded-2xl backdrop-blur border-border border">
+      <div className="w-auto px-4 py-3 items-center flex gap-4 bg-muted/30 rounded-2xl backdrop-blur border-border border">
         <Link to="/introduce" className="flex gap-2 items-center">
           <MineIcon />
           <p className="font-mono text-primary tracking-tighter">{env.title}</p>

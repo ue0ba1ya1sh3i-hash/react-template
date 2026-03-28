@@ -1,11 +1,17 @@
-import { useTranslation } from "react-i18next"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Switch } from "@/components/ui/switch"
-import { useThemeStore } from "@/hooks/store/theme"
-import { ChildSettingsParts } from "@/components/mine/settings/parts/child"
-import { ParentSettingsParts } from "@/components/mine/settings/parts/parent"
+// This file is accessibility settings block.
 
-export function AccessibilitySettings() {
+import { useTranslation } from "react-i18next"
+
+// Store
+import { useThemeStore } from "@/hooks/store/theme"
+
+// Components
+import { Switch } from "@/components/ui/switch"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { ChildSettingsParts } from "@/components/mine/pages/settings/parts/child"
+import { ParentSettingsParts } from "@/components/mine/pages/settings/parts/parent"
+
+export function AccessibilitySettingsBlock() {
   const { t, i18n } = useTranslation()
   const { setDark, dark } = useThemeStore()
 
@@ -15,6 +21,7 @@ export function AccessibilitySettings() {
 
         <ChildSettingsParts isFlex>
           <p>{t("pages.settings.accessibility.language.title")}</p>
+          
           <Select defaultValue={i18n.language} onValueChange={i18n.changeLanguage}>
             <SelectTrigger className="w-fit">
               <SelectValue placeholder={t("pages.settings.accessibility.language.select")} />

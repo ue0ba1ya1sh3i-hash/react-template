@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <>
-      <HeaderBlocks />
+      <HeaderBlocks fixed />
       <div className="min-h-svh overflow-hidden px-4">
         <FadeinAnimation className="flex flex-col gap-8 justify-center min-h-svh items-center">
           <TypeAnimation

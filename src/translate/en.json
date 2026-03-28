@@ -93,6 +93,7 @@
   },
   "main": {
     "goBack": "Go back",
+    "goHome": "Go home",
     "error": "Sorry... An error occurred while loading.",
     "noData": "Sorry... The data did not exist.",
     "unknown": "Unknown",

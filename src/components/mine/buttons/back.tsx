@@ -1,33 +1,27 @@
+// This file is a back button navigates back.
+
 import { useTranslation } from "react-i18next"
-import { Button } from "@/components/ui/button"
 import { useNavigate } from "@/router"
-import type { ComponentProps } from "react"
 
-type GoBackButtonPartsProps = Omit<ComponentProps<typeof Button>, "onClick">
+// Components
+import { Button } from "@/components/ui/button"
 
-export function BackButton({ children, ...props }: GoBackButtonPartsProps) {
+export function BackButton({ ...props }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const canGoBackInApp = window.history.state.idx > 0
 
-  const handleGoBack = () => {
-    let isFromSameSite = false
-    try {
-      isFromSameSite =
-        document.referrer !== "" &&
-        new URL(document.referrer).hostname === window.location.hostname
-    } catch {
-      isFromSameSite = false
-    }
-    if (isFromSameSite) {
-      navigate(-1)
-    } else {
-      navigate("/")
-    }
+  if (canGoBackInApp) {
+    return (
+      <Button onClick={() => navigate(-1)} {...props}>
+        {t("main.goBack")}
+      </Button>
+    )
+  } else {
+    return (
+      <Button onClick={() => navigate("/")} {...props}>
+        {t("main.goHome")}
+      </Button>
+    )
   }
-
-  return (
-    <Button onClick={handleGoBack} {...props}>
-      {children ?? t("main.goBack")}
-    </Button>
-  )
 }

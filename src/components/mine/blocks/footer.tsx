@@ -1,3 +1,5 @@
+// This file is main footer.
+
 import { Link } from "@/router"
 import { useTranslation } from "react-i18next"
 import { useAuthState } from "react-firebase-hooks/auth"
@@ -11,7 +13,7 @@ export function FooterBlocks() {
   const [user, loading] = useAuthState(auth)
 
   return (
-    <footer className="p-5 w-full border-t-2 flex flex-col gap-5">
+    <footer className="p-5 mt-auto w-full border-t flex flex-col gap-5">
       <Link className="w-fit font-mono text-foreground text-xl" to={
         user && !loading ? "/" : "/introduce"
       }>

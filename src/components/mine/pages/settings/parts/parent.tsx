@@ -3,7 +3,7 @@
 export function ParentSettingsParts({ children, ...props }: { children: React.ReactNode }) {
   return (
     <div
-      className="flex flex-col gap-4 p-4 bg-background border-2 dark:border-0 dark:bg-muted rounded-xl"
+      className="flex flex-col gap-3 p-4 bg-background border-2 dark:border-0 dark:bg-muted/30 rounded-xl"
       {...props}
     >
       {children}

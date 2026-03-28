@@ -1,28 +1,33 @@
-import { useTranslation } from "react-i18next"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "@/lib/firebase"
+// This file is settings page.
 
-// Parts
+import { useTranslation } from "react-i18next"
+
+// Components
 import { HeaderBlocks } from "@/components/mine/blocks/header"
 import { FooterBlocks } from "@/components/mine/blocks/footer"
+import { AccountSettingsBlock } from "@/components/mine/pages/settings/blocks/account"
+import { AccessibilitySettingsBlock } from "@/components/mine/pages/settings/blocks/accessibility"
 
-// 設定コンポーネント
-import { AccountSettings } from "@/components/mine/settings/blocks/account"
-import { AccessibilitySettings } from "@/components/mine/settings/blocks/accessibility"
+function Parent({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="px-4 flex flex-col gap-3">
+      {children}
+    </div>
+  )
+}
 
 export default function App() {
   const { t } = useTranslation()
-  const [user] = useAuthState(auth)
 
   return (
     <div className="min-h-svh flex flex-col gap-6">
       <HeaderBlocks />
 
-      <div className="px-4 flex flex-col gap-6">
+      <Parent>
         <p className="font-bold text-2xl">{t("pages.settings.title.main")}</p>
-        {user && <AccountSettings />}
-        <AccessibilitySettings />
-      </div>
+        <AccountSettingsBlock />
+        <AccessibilitySettingsBlock />
+      </Parent>
 
       <FooterBlocks />
     </div>
