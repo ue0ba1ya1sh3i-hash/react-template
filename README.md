@@ -71,6 +71,15 @@
   - `Firebase Console`で`プロジェクトの設定`の`サービスアカウント`に移動してください。
   - `Firebase Admin SDK`の`新しい秘密鍵を作成`を押してダウンロードしたJSONの名前を`secret.json`に変更して`functions/src`配下に配置してください。
 
+## その他手作業で変更しないといけない部分
+- デザイン系
+  - 以下は同じ色にするととても一貫性が出てよりモダンになります。
+  - `public/files/icons/icon.svg`を任意のsvgファイルに置き換えてください。
+  - `src/index.css`のprimaryのCSS変数を任意のカラーに変更してください。
+- サイトマップ
+  - `public/sitemap.xml`のドメインを自分の公開するURLに変更してください。
+  - `public/robots.txt`も変更してください。
+
 - セットアップコマンドの実行
   - `npm run setup`で`Normal setup`を選んで画面の通りに必要事項を入力してください。
 

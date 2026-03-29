@@ -4,4 +4,3 @@ node_modules
 dist
 .firebaserc
 functions/src/secret.json
-src/router.ts
