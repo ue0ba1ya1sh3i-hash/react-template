@@ -38,6 +38,11 @@
     {
       "name": "VITE_FIREBASE_MEASUREMENT_ID",
       "message": "Firebase Measurement ID"
+    },
+
+    {
+      "name": "VITE_DEPLOY_DOMAIN",
+      "message": "Your deploy domain"
     }
   ]
 }

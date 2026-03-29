@@ -25,7 +25,7 @@ export function useGoogleSignin() {
       
       const provider = new GoogleAuthProvider()
       await signInWithPopup(auth, provider)
-      navigate("/")
+      navigate("/", { replace: true })
       log("User signed in with Google.")
     } catch(error) {
       errorLog(error)
@@ -50,7 +50,7 @@ export function useGoogleUpgrade() {
       
       // Reload
       await user.reload()
-      navigate("/")
+      navigate("/", { replace: true })
       log("User upgraded with Google.")
     } catch (error) {
       errorLog(error)
@@ -70,7 +70,7 @@ export function useGuestSignin() {
       if (user) return
       
       await signInAnonymously(auth)
-      navigate("/")
+      navigate("/", { replace: true })
       log("User signed in with guest.")
     } catch (error) {
       errorLog(error)
@@ -90,7 +90,7 @@ export function useDeleteAccount() {
       if (!user) return
 
       await deleteUser(user)
-      navigate("/introduce")
+      navigate("/introduce", { replace: true })
       log("User deleted")
     } catch (error) {
       errorLog(error)
@@ -114,7 +114,7 @@ export function useSignout() {
         await deleteAccount()
       } else {
         await auth.signOut()
-        navigate("/introduce")
+        navigate("/introduce", { replace: true })
         log("User signed out")
       }
     } catch(error) {
