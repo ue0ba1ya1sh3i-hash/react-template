@@ -1,9 +1,9 @@
-import { HeaderBlocks } from "@/components/mine/blocks/header"
+import { SimpleTemplate } from "@/components/mine/templates/simple"
 
 export default function App() {
   return (
     <div className="min-h-svh">
-      <HeaderBlocks />
+      <SimpleTemplate />
     </div>
   )
 }

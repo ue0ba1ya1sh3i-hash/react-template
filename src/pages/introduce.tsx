@@ -1,9 +1,13 @@
-import { Button } from "@/components/ui/button"
+// This file is introduce page.
+
 import { Info } from "lucide-react"
 import { Link } from "@/router"
 import { env } from "@/lib/env"
 import { TypeAnimation } from "react-type-animation"
 import { useTranslation } from "react-i18next"
+
+// Components
+import { Button } from "@/components/ui/button"
 import { HeaderBlocks } from "@/components/mine/blocks/header"
 import { FooterBlocks } from "@/components/mine/blocks/footer"
 import { FadeinAnimation } from "@/components/mine/animations/fadein"

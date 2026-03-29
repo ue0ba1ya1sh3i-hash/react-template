@@ -1,3 +1,5 @@
+// This file is privacy page.
+
 import { errorLog } from "@/lib/log"
 import { useFirestore } from "@/hooks/useFirestore"
 import { useTranslation } from "react-i18next"

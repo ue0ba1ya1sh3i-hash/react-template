@@ -1,8 +1,12 @@
-import { SimpleTemplate } from "@/components/mine/templates/simple"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+// This file is notice page.
+
 import { errorLog } from "@/lib/log"
 import { useTranslation } from "react-i18next"
 import { useFirestore } from "@/hooks/useFirestore"
+
+// Components
+import { SimpleTemplate } from "@/components/mine/templates/simple"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 function Updates() {
   const { t } = useTranslation()

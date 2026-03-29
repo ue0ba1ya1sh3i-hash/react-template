@@ -12,7 +12,7 @@ export function SimpleTemplate({ children, description }: { children?: React.Rea
 
   return (
     <>
-      <HeaderBlocks />
+      <HeaderBlocks fixed />
       <div className="min-h-svh px-4 flex flex-col items-center justify-center overflow-hidden">
         <FadeinAnimation className="w-full max-w-2xl gap-4 flex flex-col">
           <p className="text-2xl font-bold">{title}</p>
