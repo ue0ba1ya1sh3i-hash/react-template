@@ -15,7 +15,7 @@ import { ParentParts } from "@/components/mine/parts/parent"
 export function AccessibilitySettingsBlock() {
   const { t, i18n } = useTranslation()
   const { setDark, dark } = useThemeStore()
-  const { noticeAllow, setNoticeAllow } = useNoticeStore()
+  const { noticeMode, setNoticeMode } = useNoticeStore()
 
   return (
     <ParentParts>
@@ -44,7 +44,7 @@ export function AccessibilitySettingsBlock() {
 
         <ChildParts flex>
           <p>{t("pages.settings.main.block.accessibility.notice")}</p>
-          <Switch checked={noticeAllow} onCheckedChange={setNoticeAllow} />
+          <Switch checked={noticeMode} onCheckedChange={setNoticeMode} />
         </ChildParts>
       </ParentParts>
   )

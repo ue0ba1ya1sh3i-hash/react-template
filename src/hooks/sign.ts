@@ -29,7 +29,6 @@ export function useGoogleSignin() {
       const provider = new GoogleAuthProvider()
       await signInWithPopup(auth, provider)
       navigate("/", { replace: true })
-      toast.success(t("toast.sign.signin.google"))
       log("User signed in with Google.")
     } catch(error) {
       toast.error(t("common.error.main"))
@@ -80,7 +79,6 @@ export function useGuestSignin() {
       
       await signInAnonymously(auth)
       navigate("/", { replace: true })
-      toast.success(t("toast.sign.signin.guest"))
       log("User signed in with guest.")
     } catch (error) {
       toast.error(t("common.error.main"))

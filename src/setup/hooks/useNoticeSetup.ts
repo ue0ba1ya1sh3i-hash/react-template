@@ -9,25 +9,31 @@ import { useLoading } from "@/hooks/loading"
 import { useTranslation } from "react-i18next"
 
 export function useNoticeSetup() {
-	const { noticeAllow: enable, setNoticeAllow: setEnable } = useNoticeStore()
+	const { noticeMode, setNoticeMode } = useNoticeStore()
 	const { loading } = useLoading()
 	const { t } = useTranslation()
 
 	useEffect(() => {
-		if (!loading && enable) {
-			(async () => {
-				// Check notice permission
-				const permission = await Notification.requestPermission()
-				if (permission === "denied") {
-					toast.error(t("toast.notice.denied.title"), {
-						description: t("toast.notice.denied.description"),
-						action: {
-							label: t("toast.notice.denied.off"),
-							onClick: () => { setEnable(false) }
-						}
-					})
-				}
-			})()
+		const id = "notice-permission"
+
+		if (!noticeMode) {
+			toast.dismiss(id)
+			return
 		}
-	}, [enable, loading])
+
+		void (async () => {
+			// Check notice permission
+			const permission = await Notification.requestPermission()
+			if (permission === "denied") {
+				toast.error(t("toast.notice.denied.title"), {
+					description: t("toast.notice.denied.description"),
+					id: id,
+					action: {
+						label: t("toast.notice.denied.off"),
+						onClick: () => { setNoticeMode(false) }
+					}
+				})
+			}
+		})()
+	}, [noticeMode, loading, setNoticeMode, t])
 }

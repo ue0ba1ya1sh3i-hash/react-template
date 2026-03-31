@@ -128,17 +128,13 @@
     },
 
     "sign": {
-      "signin": {
-        "google": "Signed in with Google",
-        "guest": "Signed in as guest"
-      },
+      "signin": "Signed in",
+      "delete": "Account deleted",
+      "signout": "Signed out",
 
       "update": {
         "google": "Google account connected"
-      },
-
-      "delete": "Account deleted",
-      "signout": "Signed out"
+      }
     }
   },
 

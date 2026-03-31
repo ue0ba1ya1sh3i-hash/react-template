@@ -7,7 +7,7 @@ type Sign =  {
   setSigninLoading: (value: boolean) => void
 }
 
-export const useSignStore = create<Sign>()(
+export const useSignLoadingStore = create<Sign>()(
   (set) => ({
     signinLoading: false,
     setSigninLoading: (value: boolean) => set({ signinLoading: value })

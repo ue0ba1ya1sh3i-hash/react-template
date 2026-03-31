@@ -68,9 +68,7 @@ export default function App() {
                 <SignLoadingButton
                   variant="outline"
                   groupType="sign"
-                  onClick={async () => {
-                    await guestSignin()
-                  }}
+                  onClick={guestSignin}
                 >
                   <CircleUser />
                   {t("common.sign.thirdparty.guest")}
@@ -79,9 +77,7 @@ export default function App() {
                 <SignLoadingButton
                   variant="outline"
                   groupType="sign"
-                  onClick={async () => {
-                    await googleSignin()
-                  }}>
+                  onClick={googleSignin}>
                   <FaGoogle />
                   {t("common.sign.thirdparty.google")}
                 </SignLoadingButton>
