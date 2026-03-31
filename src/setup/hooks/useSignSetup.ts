@@ -9,19 +9,20 @@ export function useAuthRedirectSetup() {
   const { user, userLoading: loading } = useAuthStore()
   const navigate = useNavigate()
   const path = useLocation().pathname
+  const pathKey = path === "/" ? "index" : path.split("/")[1] || "index"
 
   // Ignore paths
-  const signoutIgnorePath = ["/i", "/"]
-  const signinIgnorePath = ["/o"]
+  const signoutIgnorePath = ["i", "index"]
+  const signinIgnorePath = ["o"]
 
   // Redirect with sign status
   useEffect(() => {
     if (!loading) {
-      if (!user && signoutIgnorePath.includes(path)) {
+      if (!user && signoutIgnorePath.includes(pathKey)) {
         navigate("/introduce")
-      } else if (user && signinIgnorePath.includes(path)) {
+      } else if (user && signinIgnorePath.includes(pathKey)) {
         navigate("/")
       }
     }
-  }, [user, loading, path, navigate])
+  }, [user, loading, pathKey, navigate])
 }

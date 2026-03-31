@@ -7,7 +7,6 @@ import { useLoading } from "@/hooks/loading"
 import { Outlet } from "react-router-dom"
 import { LoaderIcon } from "lucide-react"
 import { Toaster } from "@/components/ui/sonner"
-import { FadeinAnimation } from "@/components/mine/animations/fadein"
 
 // Setup hooks
 import { useAuthRedirectSetup } from "@/setup/hooks/useSignSetup"
@@ -46,9 +45,9 @@ export default function Layout() {
   )
 
   return (
-    <FadeinAnimation className="bg-background text-foreground min-h-svh w-full">
+    <div className="bg-background text-foreground min-h-svh w-full wrap-break-word">
       <Outlet />
       <Toaster />
-    </FadeinAnimation>
+    </div>
   )
 }

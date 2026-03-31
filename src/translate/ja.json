@@ -34,7 +34,7 @@
     },
 
     "introduce": {
-      "description": "シンプルなReactテンプレート",
+      "title": "シンプルなReactテンプレート",
       "main": {
         "getStarted": "始めましょう",
         "viewUpdates": "お知らせ"
@@ -125,6 +125,20 @@
         "description": "通知権限を変更してください。",
         "off": "オフにする"
       }
+    },
+
+    "sign": {
+      "signin": {
+        "google": "Googleでサインインしました",
+        "guest": "ゲストでサインインしました"
+      },
+
+      "update": {
+        "google": "Googleアカウントと連携しました"
+      },
+
+      "delete": "アカウントを削除しました",
+      "signout": "サインアウトしました"
     }
   },
 

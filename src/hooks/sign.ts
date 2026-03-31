@@ -2,6 +2,7 @@
 
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
+import { useTranslation } from "react-i18next"
 import {
   GoogleAuthProvider,
   linkWithPopup,
@@ -17,6 +18,7 @@ import { log, errorLog } from "@/lib/log"
 
 export function useGoogleSignin() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   async function signin() {
     try {
@@ -27,9 +29,10 @@ export function useGoogleSignin() {
       const provider = new GoogleAuthProvider()
       await signInWithPopup(auth, provider)
       navigate("/", { replace: true })
-      toast.success("Googleでサインインしました。")
+      toast.success(t("toast.sign.signin.google"))
       log("User signed in with Google.")
     } catch(error) {
+      toast.error(t("common.error.main"))
       errorLog(error)
     }
   }
@@ -37,10 +40,11 @@ export function useGoogleSignin() {
   return signin
 }
 
-export function useGoogleUpgrade() {
+export function useGoogleUpdate() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
-  async function upgrade() {
+  async function update() {
     try {
       // Confirm user is guest
       const user = getAuth().currentUser
@@ -53,18 +57,20 @@ export function useGoogleUpgrade() {
       // Reload
       await user.reload()
       navigate("/", { replace: true })
-      toast.success("ゲストアカウントをGoogleアカウントに接続しました。")
-      log("User upgraded with Google.")
+      toast.success(t("toast.sign.update.google"))
+      log("User updated with Google.")
     } catch (error) {
+      toast.error(t("common.error.main"))
       errorLog(error)
     }
   }
 
-  return upgrade
+  return update
 }
 
 export function useGuestSignin() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   async function signin() {
     try {
@@ -74,9 +80,10 @@ export function useGuestSignin() {
       
       await signInAnonymously(auth)
       navigate("/", { replace: true })
-      toast.success("ゲストアカウントでサインインしました。")
+      toast.success(t("toast.sign.signin.guest"))
       log("User signed in with guest.")
     } catch (error) {
+      toast.error(t("common.error.main"))
       errorLog(error)
     }
   }
@@ -86,6 +93,7 @@ export function useGuestSignin() {
 
 export function useDeleteAccount() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   async function deleteAccount() {
     try {
@@ -95,9 +103,10 @@ export function useDeleteAccount() {
 
       await deleteUser(user)
       navigate("/introduce", { replace: true })
-      toast.success("アカウントを削除しました。")
+      toast.success(t("toast.sign.delete"))
       log("User deleted")
     } catch (error) {
+      toast.error(t("common.error.main"))
       errorLog(error)
     }
   }
@@ -108,6 +117,7 @@ export function useDeleteAccount() {
 export function useSignout() {
   const navigate = useNavigate()
   const deleteAccount = useDeleteAccount()
+  const { t } = useTranslation()
 
   async function signout() {
     try {
@@ -121,9 +131,10 @@ export function useSignout() {
         await auth.signOut()
         navigate("/introduce", { replace: true })
         log("User signed out")
-        toast.success("サインアウトしました。")
+        toast.success(t("toast.sign.signout"))
       }
     } catch(error) {
+      toast.error(t("common.error.main"))
       errorLog(error)
     }
   }

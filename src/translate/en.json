@@ -34,7 +34,7 @@
     },
 
     "introduce": {
-      "description": "Simple React Template",
+      "title": "Simple React Template",
       "main": {
         "getStarted": "Get Started",
         "viewUpdates": "View Notice"
@@ -125,6 +125,20 @@
         "description": "Please change notice access.",
         "off": "Turn off"
       }
+    },
+
+    "sign": {
+      "signin": {
+        "google": "Signed in with Google",
+        "guest": "Signed in as guest"
+      },
+
+      "update": {
+        "google": "Google account connected"
+      },
+
+      "delete": "Account deleted",
+      "signout": "Signed out"
     }
   },
 

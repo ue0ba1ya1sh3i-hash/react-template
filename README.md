@@ -75,7 +75,7 @@
 - デザイン系
   - 以下は同じ色にするととても一貫性が出てよりモダンになります。
   - `public/files/icons/icon.svg`を任意のsvgファイルに置き換えてください。
-  - `src/index.css`のprimaryのCSS変数を任意のカラーに変更してください。
+  - `src/index.css`のprimaryのCSS変数を任意のカラーに変更してください。(darkも)
 - サイトマップ
   - `public/sitemap.xml`のドメインを自分の公開するURLに変更してください。
   - `public/robots.txt`も変更してください。

@@ -2,7 +2,7 @@
 
 import { useTranslation } from "react-i18next"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
-import { useSignout, useDeleteAccount, useGoogleUpgrade } from "@/hooks/sign"
+import { useSignout, useDeleteAccount, useGoogleUpdate } from "@/hooks/sign"
 import { useAuthStore } from "@/store/auth"
 
 // Components
@@ -19,7 +19,7 @@ export function AccountSettingsBlock() {
   // Hooks
   const signout = useSignout()
   const deleteAccount = useDeleteAccount()
-  const googleUpgrade = useGoogleUpgrade()
+  const googleUpgrade = useGoogleUpdate()
 
   if (!user) return null
 

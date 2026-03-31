@@ -17,7 +17,7 @@ function resolveTitleKey(pathname: string) {
     }
   }
 
-  const page = normalPath.replace(/^\//, "").replace(/\//g, ".pages.") || "index"
+  const page = normalPath.replace(/^\//, "").replace(/\//g, ".") || "index"
   return `pages.${page}.title`
 }
 

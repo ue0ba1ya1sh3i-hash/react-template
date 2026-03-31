@@ -21,7 +21,7 @@ function Signin({ fixed }: Header) {
 
   return (
     <div className={cn(
-      "p-4 top-0 items-center flex gap-4 w-full bg-background border-b",
+      "p-4 top-0 items-center flex gap-4 w-full bg-muted/30 backdrop-blur border-b",
       fixed ? "fixed" : "sticky"
     )}>
       <Link to="/" className="flex gap-2 items-center">
@@ -46,7 +46,7 @@ function Signout({ fixed }: Header) {
       "top-0 w-full p-4 pb-0",
       fixed ? "fixed" : "sticky"
     )}>
-      <div className="w-auto px-4 py-3 items-center flex gap-4 bg-muted/30 rounded-2xl backdrop-blur border-border border">
+      <div className="w-auto px-4 py-3 items-center flex gap-4 rounded-2xl bg-muted/30 backdrop-blur border-border border">
         <Link to="/introduce" className="flex gap-2 items-center">
           <MineIcon className="size-6" />
           <p className="font-mono text-primary tracking-tighter">{env.title}</p>
