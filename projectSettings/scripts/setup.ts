@@ -195,14 +195,10 @@ async function createFirestore(database: admin.firestore.Firestore) {
   const title = await inputPrompts("Please enter your first update info title.")
   const description = await inputPrompts("Please enter your first update info description.")
 
-  const updateData = {
-    contents: [
-      {
-        title: title,
-        description: description,
-        date: new Date()
-      }
-    ]
+  const noticeData = {
+    title: title,
+    description: description,
+    createdAt: new Date()
   }
 
   const policyData = {
@@ -213,7 +209,7 @@ async function createFirestore(database: admin.firestore.Firestore) {
   // Set data
   await database.collection("public").doc("terms").set(policyData)
   await database.collection("public").doc("privacy").set(policyData)
-  await database.collection("public").doc("updates").set(updateData)
+  await database.collection("notice").doc().set(noticeData)
 
   log.complete("Complete to create first firestore data!")
 }
@@ -222,7 +218,7 @@ async function createFirestore(database: admin.firestore.Firestore) {
 (async () => {
   // Show logo
   console.log(chalk.blue(figlet.textSync("rt setup", {
-    font: "ansi shadow"
+    font: "ANSI Shadow"
   })))
 
   // First questions

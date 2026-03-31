@@ -1,35 +1,54 @@
-// This file is the parent element of the page component.
+// This components is main layout page.
+// It uses for setup hooks.
+
+import { useLoading } from "@/hooks/loading"
 
 // Components
-import { LoadingParts } from "@/components/mine/parts/loading"
 import { Outlet } from "react-router-dom"
+import { LoaderIcon } from "lucide-react"
+import { Toaster } from "@/components/ui/sonner"
+import { FadeinAnimation } from "@/components/mine/animations/fadein"
 
 // Setup hooks
-import { useSigninSetup } from "@/setup/hooks/useSignSetup"
-import { useAuthSetup } from "@/setup/hooks/useAuthSetup"
-import { usePageSetup } from "@/setup/hooks/useTitleSetup"
+import { useAuthRedirectSetup } from "@/setup/hooks/useSignSetup"
+import { useAuthStoreSetup } from "@/setup/hooks/useAuthSetup"
+import { useTitleSetup } from "@/setup/hooks/useTitleSetup"
 import { useThemeSetup } from "@/setup/hooks/useThemeSetup"
-import { useLoadingSetup } from "@/setup/hooks/useLoadingSetup"
+import { useNoticeSetup } from "@/setup/hooks/useNoticeSetup"
+
+function Loading({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <LoaderIcon
+      role="status"
+      aria-label="Loading"
+      className="size-7 text-foreground/30 animate-spin"
+      {...props}
+    />
+  )
+}
 
 export default function Layout() {
-  // Run setup hooks
+  // Setup hooks
   useThemeSetup()
-  useAuthSetup()
-  const { loading } = useLoadingSetup()
-  useSigninSetup()
-  usePageSetup()
+  useAuthStoreSetup()
+  useAuthRedirectSetup()
+  useTitleSetup()
+  useNoticeSetup()
 
-  if (loading) {
-    return (
-      <div className="bg-background text-foreground min-h-svh w-full flex items-center justify-center">
-        <LoadingParts className="size-7 text-accent" />
-      </div>
-    )
-  }
+  // Hooks
+  const { loading } = useLoading()
+
+  // Display loading
+  if (loading) return (
+    <div className="bg-background min-h-svh w-full flex items-center justify-center">
+      <Loading />
+    </div>
+  )
 
   return (
-    <div className="bg-background text-foreground min-h-svh w-full">
+    <FadeinAnimation className="bg-background text-foreground min-h-svh w-full">
       <Outlet />
-    </div>
+      <Toaster />
+    </FadeinAnimation>
   )
 }

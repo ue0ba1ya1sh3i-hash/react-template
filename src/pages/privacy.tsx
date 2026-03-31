@@ -1,7 +1,7 @@
-// This file is privacy page.
+// This page is privacy page.
 
 import { errorLog } from "@/lib/log"
-import { useFirestore } from "@/hooks/useFirestore"
+import { useFirestore } from "@/hooks/firestore"
 import { useTranslation } from "react-i18next"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { SimpleTemplate } from "@/components/mine/templates/simple"
@@ -16,20 +16,22 @@ function Terms() {
 
   if (error) {
     errorLog(error)
-    return <p>{t("main.error")}</p>
+    return <p>{t("common.error.main")}</p>
   }
 
   if (!privacyData) {
-    return <p>{t("main.noData")}</p>
+    return <p>{t("common.error.noData")}</p>
   }
 
   return (
-    <Alert className="flex flex-col gap-2">
+    <Alert>
       <AlertTitle>
-        {t("components.policy.writeDate")} - {privacyData.date.toDate().toLocaleDateString() || t("main.noData")}
+        {privacyData.content}
       </AlertTitle>
 
-      <AlertDescription>{privacyData.content || t("main.noData")}</AlertDescription>
+      <AlertDescription>
+        {privacyData.date.toDate().toLocaleDateString()}
+      </AlertDescription>
     </Alert>
   )
 }

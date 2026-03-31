@@ -1,4 +1,4 @@
-// This file is settings page.
+// This page is settings page.
 
 import { useTranslation } from "react-i18next"
 
@@ -24,7 +24,7 @@ export default function App() {
       <HeaderBlocks />
 
       <Parent>
-        <p className="font-bold text-2xl">{t("pages.settings.title.main")}</p>
+        <p className="font-bold text-2xl">{t("pages.settings.title")}</p>
         <AccountSettingsBlock />
         <AccessibilitySettingsBlock />
       </Parent>

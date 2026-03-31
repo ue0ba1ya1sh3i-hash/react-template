@@ -1,107 +1,147 @@
 {
   "pages": {
     "index": {
-      "title": "Thank you for signing in.",
-      "description": "This is the main page after signing in. You will basically be editing this. In that case, delete this section and build the system. For details, see the link below.",
-      "viewProject": "See project"
-    },
-    "settings": {
-      "account": {
-        "title": "Account",
-        "uid": "Your user id",
-        "connect": {
-          "title": "Guest account enhancements",
-          "button": "Log in and transfer to Google"
-        },
-        "signout": {
-          "title": "Sign out of this device",
-          "warn": "If you are a guest, your data will be erased when you sign out. Is that ok?",
-          "button": "Sign out"
-        },
-        "deleteAccount": {
-          "title": "Delete your account",
-          "warn": "If I delete my account, all my data will be deleted. Is that ok?",
-          "button": "Delete"
-        }
-      },
-      "accessibility": {
-        "title": "Accessibility",
-        "darkMode": "Dark mode",
-        "language": {
-          "title": "Language",
-          "select": "Select language"
-        }
-      },
-      "title": {
-        "main": "Main"
+      "title": "Home",
+      "main": {
+        "title": "Welcome to the main page",
+        "description": "This is the main page. It will be displayed first after you sign in. Please edit /src/pages/index.tsx to build your app. Please check GitHub for more information.",
+        "viewProject": "View Project"
       }
     },
+
+    "o": {
+      "signin": {
+        "title": "Sign In",
+        "main": {
+          "title": "Welcome to {{title}}",
+          "announce": "Don't have an account?"
+        }
+      },
+
+      "signup": {
+        "title": "Sign Up",
+        "main": {
+          "title": "Create an account",
+          "announce": "Already have an account?"
+        }
+      }
+    },
+
+    "i": {
+      "admin": {
+        "title": "Admin Dashboard"
+      }
+    },
+
     "introduce": {
-      "getStarted": "Get started",
-      "viewUpdates": "Update Info"
+      "description": "Simple React Template",
+      "main": {
+        "getStarted": "Get Started",
+        "viewUpdates": "View Notice"
+      }
     },
+
     "privacy": {
-      "description": "This page describes the privacy policy for your use of the Service. Please read the policy before using the Service to understand how your personal information will be used."
+      "title": "Privacy Policy",
+      "description": "This page contains the privacy policy for using the service. Please read the policy before using the service and understand how your personal information is used."
     },
+
     "terms": {
-      "description": "This page contains the terms of use for using the service. Please read the policy and understand the prohibited actions before using this service."
+      "title": "Terms of Service",
+      "description": "This page contains the terms of service for using the service. Please read the policy before using the service and understand the prohibited activities."
     },
-    "signin": {
-      "title": "Welcome to {{title}}",
-      "announce": "Don't have an account yet?",
-      "submit": "Sign in",
-      "warn": "By signing in you agree to the following policy.",
-      "continue": {
-        "guest": "Continue as guest",
+
+    "notfound": {
+      "title": "404 Not Found",
+      "description": "Sorry, the page you are looking for could not be found."
+    },
+
+    "settings": {
+      "title": "Settings",
+      "main": {
+        "block": {
+          "account": {
+            "title": "Account",
+            "uid": "User ID",
+            "update": {
+              "title": "Connect Google Account",
+              "description": "You can connect your guest account with a Google account to access more services.",
+              "button": "Sign in with Google to connect"
+            },
+
+            "signout": {
+              "title": "Sign out from this device",
+              "button": "Sign out",
+              "warning": "If you have a guest account, your data will be deleted."
+            },
+
+            "deleteAccount": {
+              "title": "Delete Account",
+              "button": "Delete",
+              "warning": "Deleting your account will remove all your data."
+            }
+          },
+
+          "accessibility": {
+            "title": "Accessibility",
+            "dark": "Dark Mode",
+            "language": {
+              "title": "Language Settings",
+              "select": "Please select a language."
+            },
+            "notice": "Notice"
+          }
+        }
+      }
+    },
+
+    "notice": {
+      "title": "Notice",
+      "pages": {
+        "detail": {
+          "title": "Notice Detail"
+        }
+      }
+    }
+  },
+
+  "components": {
+    "backButton": {
+      "goBack": "Go Back",
+      "goHome": "Go Home"
+    },
+    
+    "dialog":  {
+      "continue": "Continue",
+      "cancel": "Cancel",
+      "confirm": "Are you sure?"
+    }
+  },
+
+  "toast": {
+    "notice": {
+      "denied": {
+        "title": "Notice Access Denied",
+        "description": "Please change notice access.",
+        "off": "Turn off"
+      }
+    }
+  },
+
+  "common": {
+    "sign": {
+      "warning": "By continuing, you agree to the following policies.",
+      "or": "Or",
+      "thirdparty": {
+        "guest": "Try as Guest",
         "google": "Continue with Google"
       }
     },
-    "signup": {
-      "title": "Let's create an account!",
-      "announce": "Already have an account?",
-      "submit": "Create account",
-      "warn": "By signing up you agree to the following policy.",
-      "continue": {
-        "guest": "Continue as guest",
-        "google": "Create with Google"
-      }
-    },
-    "notfound": {
-      "message": "Sorry... We couldn't find the page you were looking for."
+
+    "error": {
+      "title": "ERROR",
+      "main": "An error has occurred.",
+      "noData": "No data available."
     }
-  },
-  "components": {
-    "policy": {
-      "writeDate": "Write date"
-    },
-    "sign": {
-      "email": "Mail address",
-      "pass": "Password",
-      "or": "OR"
-    }
-  },
-  "title": {
-    "notice": "Notice",
-    "signin": "Sign in",
-    "privacy": "Privacy policy",
-    "terms": "Terms of service",
-    "signup": "Sign up",
-    "settings": "Settings",
-    "index": "Home",
-    "introduce": "Simple react template",
-    "admin": "Admin page"
-  },
-  "main": {
-    "goBack": "Go back",
-    "goHome": "Go home",
-    "error": "Sorry... An error occurred while loading.",
-    "noData": "Sorry... The data did not exist.",
-    "unknown": "Unknown",
-    "signout": "Sign out",
-    "sure": "Confirm",
-    "cancel": "Cancel",
-    "continue": "Continue",
-    "close": "Close",
-    "errorMain": "Error"
   }
 }

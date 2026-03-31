@@ -1,6 +1,7 @@
 // This file is signing functions.
 
 import { useNavigate } from "react-router-dom"
+import { toast } from "sonner"
 import {
   GoogleAuthProvider,
   linkWithPopup,
@@ -26,6 +27,7 @@ export function useGoogleSignin() {
       const provider = new GoogleAuthProvider()
       await signInWithPopup(auth, provider)
       navigate("/", { replace: true })
+      toast.success("Googleでサインインしました。")
       log("User signed in with Google.")
     } catch(error) {
       errorLog(error)
@@ -51,6 +53,7 @@ export function useGoogleUpgrade() {
       // Reload
       await user.reload()
       navigate("/", { replace: true })
+      toast.success("ゲストアカウントをGoogleアカウントに接続しました。")
       log("User upgraded with Google.")
     } catch (error) {
       errorLog(error)
@@ -71,6 +74,7 @@ export function useGuestSignin() {
       
       await signInAnonymously(auth)
       navigate("/", { replace: true })
+      toast.success("ゲストアカウントでサインインしました。")
       log("User signed in with guest.")
     } catch (error) {
       errorLog(error)
@@ -91,6 +95,7 @@ export function useDeleteAccount() {
 
       await deleteUser(user)
       navigate("/introduce", { replace: true })
+      toast.success("アカウントを削除しました。")
       log("User deleted")
     } catch (error) {
       errorLog(error)
@@ -116,6 +121,7 @@ export function useSignout() {
         await auth.signOut()
         navigate("/introduce", { replace: true })
         log("User signed out")
+        toast.success("サインアウトしました。")
       }
     } catch(error) {
       errorLog(error)

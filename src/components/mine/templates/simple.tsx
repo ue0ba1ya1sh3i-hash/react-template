@@ -7,8 +7,17 @@ import { FadeinAnimation } from "@/components/mine/animations/fadein"
 // Hooks
 import { useTitle } from "@/hooks/title"
 
-export function SimpleTemplate({ children, description }: { children?: React.ReactNode, description?: string }) {
-  const { title } = useTitle()
+export function SimpleTemplate({ children, description, button: requestedButton, title: requestedTitle }: { children?: React.ReactNode, description?: string, button?: React.ReactNode, title?: string }) {
+  const { title: pageTitle } = useTitle()
+  let title = pageTitle
+  if (requestedTitle) {
+    title = requestedTitle
+  }
+
+  let button: React.ReactNode = <BackButton className="w-fit" />
+  if (requestedButton) {
+    button = requestedButton
+  }
 
   return (
     <>
@@ -22,7 +31,7 @@ export function SimpleTemplate({ children, description }: { children?: React.Rea
           )}
 
           {children}
-          <BackButton className="w-fit" />
+          {button}
         </FadeinAnimation>
       </div>
       <FooterBlocks />

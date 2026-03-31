@@ -22,7 +22,7 @@ export default function App() {
         <FadeinAnimation className="flex flex-col gap-8 justify-center min-h-svh items-center">
           <TypeAnimation
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-center"
-            sequence={[t("title.introduce"), 4000, env.title, 4000]}
+            sequence={[t("pages.introduce.description"), 4000, env.title, 4000]}
             speed={50}
             repeat={Infinity}
             wrapper="p"
@@ -30,12 +30,12 @@ export default function App() {
           />
 
           <div className="flex gap-2 items-center">
-            <Link to="/signin">
-              <Button variant="outline">{t("pages.introduce.getStarted")}</Button>
+            <Link to="/o/signin">
+              <Button variant="outline">{t("pages.introduce.main.getStarted")}</Button>
             </Link>
 
             <Link to="/notice">
-              <Button><Info /> {t("pages.introduce.viewUpdates")}</Button>
+              <Button><Info /> {t("pages.introduce.main.viewUpdates")}</Button>
             </Link>
           </div>
         </FadeinAnimation>

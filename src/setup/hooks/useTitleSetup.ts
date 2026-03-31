@@ -4,10 +4,10 @@ import { useEffect } from "react"
 import { env } from "@/lib/env"
 import { useTitle } from "@/hooks/title"
 
-export function usePageSetup() {
+export function useTitleSetup() {
   const { title } = useTitle()
 
-  // Change the title when the title changes.
+  // Change the title when the title state changes.
   useEffect(() => {
     document.title = title + " - " + env.title
   }, [title])

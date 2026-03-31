@@ -31,7 +31,7 @@ function Signin({ fixed }: Header) {
 
       <div className="ml-auto flex gap-2 items-center">
         <Link to="/settings">
-          <Button><Settings /> {t("title.settings")}</Button>
+          <Button><Settings /> {t("pages.settings.title")}</Button>
         </Link>
       </div>
     </div>
@@ -53,12 +53,12 @@ function Signout({ fixed }: Header) {
         </Link>
 
         <div className="ml-auto hidden sm:flex gap-2 items-center">
-          <Link to="/signin">
-            <Button><LogIn /> {t("title.signin")}</Button>
+          <Link to="/o/signin">
+            <Button><LogIn /> {t("pages.o.signin.title")}</Button>
           </Link>
 
           <Link to="/settings">
-            <Button><Settings /> {t("title.settings")}</Button>
+            <Button><Settings /> {t("pages.settings.title")}</Button>
           </Link>
         </div>
       </div>
@@ -67,9 +67,9 @@ function Signout({ fixed }: Header) {
 }
 
 export function HeaderBlocks(props: Header) {
-  const { user, loading } = useAuthStore()
+  const { user, userLoading } = useAuthStore()
 
-  if (!loading) {
+  if (!userLoading) {
     if (user) {
       return <Signin {...props} />
     } else {

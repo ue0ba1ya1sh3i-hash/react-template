@@ -25,63 +25,63 @@ export function AccountSettingsBlock() {
 
   return (
     <ParentParts>
-      <p className="text-xl">{t("pages.settings.account.title")}</p>
+      <p className="text-xl">{t("pages.settings.main.block.account.title")}</p>
 
       <ChildParts>
-        <p>{t("pages.settings.account.uid")}</p>
+        <p>{t("pages.settings.main.block.account.uid")}</p>
         <CopyButton text={user?.uid} />
       </ChildParts>
 
       {user?.isAnonymous && (
         <ChildParts>
-          <p>{t("pages.settings.account.connect.title")}</p>
+          <p>{t("pages.settings.main.block.account.update.title")}</p>
           <Button onClick={async () => {
             await googleUpgrade()
-          }} variant="outline" className="w-fit">{t("pages.settings.account.connect.button")}</Button>
+          }} variant="outline" className="w-fit">{t("pages.settings.main.block.account.update.button")}</Button>
         </ChildParts>
       )}
 
       <ChildParts>
-        <p>{t("pages.settings.account.signout.title")}</p>
+        <p>{t("pages.settings.main.block.account.signout.title")}</p>
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button size="lg" variant="destructive" className="w-fit">{t("pages.settings.account.signout.button")}</Button>
+            <Button size="lg" variant="destructive" className="w-fit">{t("pages.settings.main.block.account.signout.button")}</Button>
           </AlertDialogTrigger>
 
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>{t("main.sure")}</AlertDialogTitle>
-              <AlertDialogDescription>{t("pages.settings.account.signout.warn")}</AlertDialogDescription>
+              <AlertDialogTitle>{t("components.dialog.confirm")}</AlertDialogTitle>
+              <AlertDialogDescription>{t("pages.settings.main.block.account.signout.warning")}</AlertDialogDescription>
             </AlertDialogHeader>
 
             <AlertDialogFooter>
-              <AlertDialogCancel>{t("main.cancel")}</AlertDialogCancel>
+              <AlertDialogCancel>{t("components.dialog.cancel")}</AlertDialogCancel>
               <AlertDialogAction onClick={async () => {
                 await signout()
-              }}>{t("main.continue")}</AlertDialogAction>
+              }}>{t("components.dialog.continue")}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
       </ChildParts>
 
       <ChildParts>
-        <p>{t("pages.settings.account.deleteAccount.title")}</p>
+        <p>{t("pages.settings.main.block.account.deleteAccount.title")}</p>
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button size="lg" variant="destructive" className="w-fit">{t("pages.settings.account.deleteAccount.button")}</Button>
+            <Button size="lg" variant="destructive" className="w-fit">{t("pages.settings.main.block.account.deleteAccount.button")}</Button>
           </AlertDialogTrigger>
 
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>{t("main.sure")}</AlertDialogTitle>
-              <AlertDialogDescription>{t("pages.settings.account.deleteAccount.warn")}</AlertDialogDescription>
+              <AlertDialogTitle>{t("components.dialog.confirm")}</AlertDialogTitle>
+              <AlertDialogDescription>{t("pages.settings.main.block.account.deleteAccount.warning")}</AlertDialogDescription>
             </AlertDialogHeader>
 
             <AlertDialogFooter>
-              <AlertDialogCancel>{t("main.cancel")}</AlertDialogCancel>
+              <AlertDialogCancel>{t("components.dialog.cancel")}</AlertDialogCancel>
               <AlertDialogAction onClick={async () => {
                 await deleteAccount()
-              }}>{t("main.continue")}</AlertDialogAction>
+              }}>{t("components.dialog.continue")}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

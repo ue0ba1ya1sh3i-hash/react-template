@@ -7,7 +7,7 @@ import { env } from "@/lib/env"
 
 export function FooterBlocks() {
   const { t } = useTranslation()
-  const { user, loading } = useAuthStore()
+  const { user, userLoading: loading } = useAuthStore()
 
   return (
     <footer className="p-5 mt-auto w-full border-t flex flex-col gap-5">
@@ -20,8 +20,8 @@ export function FooterBlocks() {
       <div className="flex gap-3 flex-col sm:flex-row">
         <p>&copy; {new Date().getFullYear()} {env.title}. All rights reserved.</p>
         <div className="flex gap-3 sm:ml-auto">
-          <Link to="/privacy">{t("title.privacy")}</Link>
-          <Link to="/terms">{t("title.terms")}</Link>
+          <Link to="/privacy">{t("pages.privacy.title")}</Link>
+          <Link to="/terms">{t("pages.terms.title")}</Link>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
-import { useLoadingStore } from "@/store/loading"
+import { useSignStore } from "@/store/sign"
 
 type LoadingButtonProps = React.ComponentProps<typeof Button> & {
   onClick: () => Promise<void> | void,
@@ -8,7 +8,7 @@ type LoadingButtonProps = React.ComponentProps<typeof Button> & {
 }
 
 export function SignLoadingButton({ onClick, children, groupType, ...props }: LoadingButtonProps) {
-  const { signLoading, setSignLoading } = useLoadingStore()
+  const { signinLoading: signLoading, setSigninLoading: setSignLoading } = useSignStore()
 
   const handleClick = async () => {
     setSignLoading(true)

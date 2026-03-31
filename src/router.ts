@@ -4,19 +4,19 @@
 import { components, hooks, utils } from '@generouted/react-router/client'
 
 export type Path =
-  | `*`
   | `/`
-  | `/admin`
+  | `/i/admin`
   | `/introduce`
   | `/notice`
+  | `/notice/:id`
+  | `/o/signin`
+  | `/o/signup`
   | `/privacy`
   | `/settings`
-  | `/signin`
-  | `/signup`
   | `/terms`
 
 export type Params = {
-  '/*': { '*': string }
+  '/notice/:id': { id: string }
 }
 
 export type ModalPath = never

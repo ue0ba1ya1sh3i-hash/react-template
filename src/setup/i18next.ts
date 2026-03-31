@@ -36,5 +36,3 @@ i18n.use(languageDetector).use(initReactI18next).init({
     escapeValue: false
   }
 })
-
-export default i18n

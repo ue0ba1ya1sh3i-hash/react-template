@@ -1,22 +1,38 @@
-// This file dynamically changes title.
+// This file manages the title of the page.
 
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useLocation } from "react-router-dom"
+import { matchPath, useLocation } from "react-router-dom"
+
+function resolveTitleKey(pathname: string) {
+  const normalPath = pathname.replace(/\/+$/, "") || "/"
+  const dynamicRouteMap = [
+    { path: "/notice/:id", key: "pages.notice.pages.detail.title" },
+  ] as const
+
+  for (const route of dynamicRouteMap) {
+    // Check match dynamic route
+    if (matchPath({ path: route.path, end: true }, normalPath)) {
+      return route.key
+    }
+  }
+
+  const page = normalPath.replace(/^\//, "").replace(/\//g, ".pages.") || "index"
+  return `pages.${page}.title`
+}
 
 export function useTitle() {
   const location = useLocation()
-  const page = location.pathname.replace("/", "") || "index" // root is "index"
-  const key = `title.${page}`
+  const key = resolveTitleKey(location.pathname)
   const { t, i18n } = useTranslation()
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("Loading...")
 
-  // Check translation existence
   useEffect(() => {
+    // Check translation key
     if (i18n.exists(key as any)) {
       setTitle(t(key as any))
     } else {
-      setTitle("404 Not Found")
+      setTitle(t("pages.notfound.title"))
     }
   }, [key, t, i18n])
 

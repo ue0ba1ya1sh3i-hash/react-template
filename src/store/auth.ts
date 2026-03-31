@@ -1,20 +1,18 @@
 // This file is auth store.
 
 import { create } from "zustand"
-
-// Types
 import type { User } from "firebase/auth"
-type AuthState = {
+
+export const useAuthStore = create<{
   user: User | null
-  loading: boolean
+  userLoading: boolean
   setUser: (user: User | null) => void
-  setLoading: (loading: boolean) => void
-}
-
-export const useAuthStore = create<AuthState>((set) => ({
+  setUserLoading: (loading: boolean) => void
+}>((set) => ({
   user: null,
-  loading: true,
+  userLoading: true,
 
+  // Set status
   setUser: (user) => set({ user }),
-  setLoading: (loading) => set({ loading })
+  setUserLoading: (loading) => set({ userLoading: loading })
 }))

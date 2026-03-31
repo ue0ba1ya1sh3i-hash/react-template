@@ -1,4 +1,4 @@
-// This file is a store manages theme states.
+// This store manages theme states.
 
 import { create } from "zustand"
 import { persist, createJSONStorage } from "zustand/middleware"

@@ -3,15 +3,17 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "@/lib/firebase"
 import { useAuthStore } from "@/store/auth"
 
-export function useAuthSetup() {
-  const { setUser, setLoading } = useAuthStore()
+export function useAuthStoreSetup() {
+  const { setUser, setUserLoading: setLoading } = useAuthStore()
 
   useEffect(() => {
+    // Manage user state and loading state
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user)
       setLoading(false)
     })
 
+    // Cleanup
     return unsubscribe
   }, [])
 }

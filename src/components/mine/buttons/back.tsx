@@ -12,13 +12,13 @@ export function BackButton({ ...props }) {
   if (canGoBackInApp) {
     return (
       <Button onClick={() => navigate(-1)} {...props}>
-        {t("main.goBack")}
+        {t("components.backButton.goBack")}
       </Button>
     )
   } else {
     return (
       <Button onClick={() => navigate("/")} {...props}>
-        {t("main.goHome")}
+        {t("components.backButton.goHome")}
       </Button>
     )
   }

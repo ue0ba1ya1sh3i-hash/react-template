@@ -1,21 +1,20 @@
-// This file monitors the sign-in status and redirects the user to the appropriate page.
+// This setup hooks manage redirect logic based on authentication status.
 
-import { useAuthState } from "react-firebase-hooks/auth"
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { useNavigate } from "@/router"
-import { auth } from "@/lib/firebase"
+import { useAuthStore } from "@/store/auth"
 
-export function useSigninSetup() {
-  const [user, loading] = useAuthState(auth)
+export function useAuthRedirectSetup() {
+  const { user, userLoading: loading } = useAuthStore()
   const navigate = useNavigate()
   const path = useLocation().pathname
 
   // Ignore paths
-  const signoutIgnorePath = ["/", "/admin"]
-  const signinIgnorePath = ["/signin", "/signup"]
+  const signoutIgnorePath = ["/i", "/"]
+  const signinIgnorePath = ["/o"]
 
-  // Redirect based on sign-in status
+  // Redirect with sign status
   useEffect(() => {
     if (!loading) {
       if (!user && signoutIgnorePath.includes(path)) {
