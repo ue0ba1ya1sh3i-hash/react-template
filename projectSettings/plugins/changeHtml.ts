@@ -11,7 +11,7 @@ export function changeHtml(): Plugin {
       const env = loadEnv("", process.cwd())
       // Get env
       const title = env.VITE_TITLE
-      const description = translateFile.pages.introduce.description
+      const description = translateFile.pages.introduce.title
 
       // Change
       return html.replace(
