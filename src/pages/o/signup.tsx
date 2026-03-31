@@ -30,15 +30,15 @@ export default function App() {
                   <MineIcon className="size-8" />
                 </Link>
 
-                <p className="text-xl font-bold">{t("pages.signup.title", { title: env.title })}</p>
+                <p className="text-xl font-bold">{t("pages.o.signup.title", { title: env.title })}</p>
 
                 <FieldDescription>
-                  {t("pages.signup.announce")} <Link to="/signin">{t("title.signin")}</Link>
+                  {t("pages.o.signup.main.announce")} <Link to="/o/signin">{t("pages.o.signin.title")}</Link>
                 </FieldDescription>
               </div>
 
               <Field>
-                <FieldLabel htmlFor="email">{t("components.sign.email")}</FieldLabel>
+                <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
                   id="email"
                   type="email"
@@ -48,7 +48,7 @@ export default function App() {
               </Field>
 
               <Field>
-                <FieldLabel htmlFor="password">{t("components.sign.pass")}</FieldLabel>
+                <FieldLabel htmlFor="password">Password</FieldLabel>
                 <Input
                   id="password"
                   type="password"
@@ -59,10 +59,10 @@ export default function App() {
               <Field>
                 <SignLoadingButton groupType="sign" type="submit" onClick={() => {
                   window.alert("clicked")
-                }}>{t("pages.signup.submit")}</SignLoadingButton>
+                }}>{t("pages.o.signup.title")}</SignLoadingButton>
               </Field>
 
-              <FieldSeparator>{t("components.sign.or")}</FieldSeparator>
+              <FieldSeparator>{t("common.sign.or")}</FieldSeparator>
 
               <Field className="grid gap-2 sm:grid-cols-2">
                 <SignLoadingButton
@@ -73,7 +73,7 @@ export default function App() {
                   }}
                 >
                   <CircleUser />
-                  {t("pages.signup.continue.guest")}
+                  {t("pages.o.signup.main.announce")}
                 </SignLoadingButton>
 
                 <SignLoadingButton
@@ -83,14 +83,14 @@ export default function App() {
                     await googleSignin()
                   }}>
                   <FaGoogle />
-                  {t("pages.signup.continue.google")}
+                  {t("common.sign.thirdparty.google")}
                 </SignLoadingButton>
               </Field>
             </FieldGroup>
           </form>
 
           <FieldDescription className="px-6 text-center">
-            {t("pages.signup.warn")} <Link to="/terms">{t("title.terms")}</Link> & <Link to="/privacy">{t("title.privacy")}</Link>
+            {t("common.sign.warning")} <Link to="/terms">{t("pages.terms.title")}</Link> & <Link to="/privacy">{t("pages.privacy.title")}</Link>
           </FieldDescription>
         </div>
       </FadeinAnimation>
