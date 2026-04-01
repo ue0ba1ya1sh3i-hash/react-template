@@ -3,6 +3,7 @@
 import { Info } from "lucide-react"
 import { Link } from "@/router"
 import { env } from "@/lib/env"
+import { cn } from "@/lib/utils"
 import { TypeAnimation } from "react-type-animation"
 import { useTranslation } from "react-i18next"
 
@@ -14,9 +15,13 @@ import { FooterBlocks } from "@/components/mine/blocks/footer"
 import { FadeinAnimation } from "@/components/mine/animations/fadein"
 import { SeeFadeinAnimation } from "@/components/mine/animations/seeFadein"
 
-function Parent({ children }: { children: React.ReactNode }) {
+function Parent({ children, title, className }: { children: React.ReactNode, title: string, className?: string }) {
   return (
-    <div className="flex flex-col gap-8 justify-center min-h-svh items-center">
+    <div className={cn(
+      "flex flex-col gap-8 justify-center min-h-svh items-center",
+      className
+      )}>
+      <SeeFadeinAnimation className="text-2xl sm:text-3xl md:text-4xl font-mono text-center">{title}</SeeFadeinAnimation>
       {children}
     </div>
   )
@@ -25,12 +30,26 @@ function Parent({ children }: { children: React.ReactNode }) {
 export default function App() {
   const { t } = useTranslation()
 
+  type FeaturesData = {
+    title: string
+    description: string
+  }
+
+  const features = {
+    data: t("pages.introduce.main.features.main", {
+      returnObjects: true
+    }) as FeaturesData[],
+
+    icon: [FaHammer, FaStar, FaRocket],
+    color: ["bg-blue-700", "bg-green-600", "bg-yellow-500"]
+  }
+
   return (
     <>
       <HeaderBlocks fixed />
       <FadeinAnimation className="flex flex-col gap-8 justify-center min-h-svh items-center">
         <TypeAnimation
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono text-center"
+          className="text-2xl sm:text-3xl md:text-4xl font-mono text-center"
           sequence={[t("pages.introduce.title"), 4000, env.title, 4000]}
           speed={50}
           repeat={Infinity}
@@ -49,44 +68,27 @@ export default function App() {
         </div>
       </FadeinAnimation>
 
-      <Parent>
-        <SeeFadeinAnimation className="text-2xl sm:text-3xl md:text-4xl font-mono text-center">Features</SeeFadeinAnimation>
+      <Parent className="bg-muted/30" title={t("pages.introduce.main.features.title")}>
         <div className="flex flex-col lg:flex-row items-center gap-8">
-          <SeeFadeinAnimation className="w-85 bg-muted/30 p-5 rounded-xl flex flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-blue-700 w-fit rounded-sm">
-                <FaHammer className="size-6" />
-              </div>
+          {features.data.map((feature, index) => {
+            const Icon = features.icon[index] ?? FaHammer
+            const color = features.color[index]
+            const delay = index * 0.1
 
-              <p className="text-lg">High level of customization</p>
-            </div>
+            return (
+              <SeeFadeinAnimation delay={delay} key={feature.title} className="w-85 bg-muted/30 p-5 rounded-xl flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <div className={`p-2 ${color} text-white w-fit rounded-sm`}>
+                    <Icon className="size-6" />
+                  </div>
 
-            <p className="px-2">Since it's not a framework, you can customize it as you see fit.</p>
-          </SeeFadeinAnimation>
+                  <p className="text-lg">{feature.title}</p>
+                </div>
 
-          <SeeFadeinAnimation className="w-85 bg-muted/30 p-5 rounded-xl flex flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-green-700 w-fit rounded-sm">
-                <FaStar className="size-6" />
-              </div>
-
-              <p className="text-lg">Modern design system</p>
-            </div>
-
-            <p className="px-2">Since it's not a framework, you can customize it as you see fit.</p>
-          </SeeFadeinAnimation>
-
-          <SeeFadeinAnimation className="w-85 bg-muted/30 p-5 rounded-xl flex flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-yellow-700 w-fit rounded-sm">
-                <FaRocket className="size-6" />
-              </div>
-
-              <p className="text-lg">Latest technology</p>
-            </div>
-
-            <p className="px-2">Since it's not a framework, you can customize it as you see fit.</p>
-          </SeeFadeinAnimation>
+                <p className="px-2">{feature.description}</p>
+              </SeeFadeinAnimation>
+            )
+          })}
         </div>
       </Parent>
 

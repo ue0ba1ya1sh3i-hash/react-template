@@ -37,7 +37,26 @@
       "title": "シンプルなReactテンプレート",
       "main": {
         "getStarted": "始めましょう",
-        "viewUpdates": "お知らせ"
+        "viewUpdates": "お知らせ",
+        "features": {
+          "title": "機能紹介",
+          "main": [
+            {
+              "title": "高度なカスタマイズ性",
+              "description": "フレームワークではないため、あなたの好きなようにカスタマイズが可能"
+            },
+
+            {
+              "title": "モダンなデザインシステム",
+              "description": "Tailwind CSS、Shadcn UI、Framer Motionを使用したモダンなデザイン"
+            },
+
+            {
+              "title": "最新の技術",
+              "description": "最先端の技術を統合した、最高のテンプレートとして設計"
+            }
+          ]
+        }
       }
     },
 

@@ -37,7 +37,26 @@
       "title": "Simple React Template",
       "main": {
         "getStarted": "Get Started",
-        "viewUpdates": "View Notice"
+        "viewUpdates": "View Notice",
+        "features": {
+          "title": "Features",
+          "main": [
+            {
+              "title": "High level of customization",
+              "description": "Since it's not a framework, you can customize it as you see fit."
+            },
+
+            {
+              "title": "Modern design system",
+              "description": "A modern design using Tailwind CSS, Shadcn UI, and Framer Motion."
+            },
+
+            {
+              "title": "Latest technology",
+              "description": "It's designed to be the best template, incorporating cutting-edge technology."
+            }
+          ]
+        }
       }
     },
 
